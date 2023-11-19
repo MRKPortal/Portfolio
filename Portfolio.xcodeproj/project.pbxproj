@@ -84,6 +84,12 @@
 		0611FE452B0AA63A008A6CDE /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE432B0AA63A008A6CDE /* Icons.swift */; };
 		0611FE4A2B0AA802008A6CDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0611FE492B0AA802008A6CDE /* LaunchScreen.storyboard */; };
 		0611FE4B2B0AA802008A6CDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0611FE492B0AA802008A6CDE /* LaunchScreen.storyboard */; };
+		0611FE502B0AADF2008A6CDE /* NgonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE4F2B0AADF2008A6CDE /* NgonShape.swift */; };
+		0611FE512B0AADF2008A6CDE /* NgonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE4F2B0AADF2008A6CDE /* NgonShape.swift */; };
+		0611FE532B0AB86D008A6CDE /* CoreGraphics+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE522B0AB86D008A6CDE /* CoreGraphics+Init.swift */; };
+		0611FE542B0AB86D008A6CDE /* CoreGraphics+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE522B0AB86D008A6CDE /* CoreGraphics+Init.swift */; };
+		0611FE572B0AB88E008A6CDE /* CoreGraphics+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE562B0AB88E008A6CDE /* CoreGraphics+Operators.swift */; };
+		0611FE582B0AB88E008A6CDE /* CoreGraphics+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE562B0AB88E008A6CDE /* CoreGraphics+Operators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +156,9 @@
 		0611FE432B0AA63A008A6CDE /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		0611FE492B0AA802008A6CDE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0611FE4C2B0AA852008A6CDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0611FE4F2B0AADF2008A6CDE /* NgonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NgonShape.swift; sourceTree = "<group>"; };
+		0611FE522B0AB86D008A6CDE /* CoreGraphics+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Init.swift"; sourceTree = "<group>"; };
+		0611FE562B0AB88E008A6CDE /* CoreGraphics+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Operators.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,9 +247,10 @@
 		0611FD6D2B0AA024008A6CDE /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				0611FD6E2B0AA024008A6CDE /* scenes */,
+				0611FE4E2B0AADD6008A6CDE /* shapes */,
 				0611FD8D2B0AA024008A6CDE /* modifiers */,
 				0611FD8E2B0AA024008A6CDE /* views */,
+				0611FD6E2B0AA024008A6CDE /* scenes */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -309,6 +319,7 @@
 		0611FD932B0AA024008A6CDE /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0611FE552B0AB873008A6CDE /* graphics */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -435,6 +446,23 @@
 				0611FE492B0AA802008A6CDE /* LaunchScreen.storyboard */,
 			);
 			path = navigation;
+			sourceTree = "<group>";
+		};
+		0611FE4E2B0AADD6008A6CDE /* shapes */ = {
+			isa = PBXGroup;
+			children = (
+				0611FE4F2B0AADF2008A6CDE /* NgonShape.swift */,
+			);
+			path = shapes;
+			sourceTree = "<group>";
+		};
+		0611FE552B0AB873008A6CDE /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				0611FE522B0AB86D008A6CDE /* CoreGraphics+Init.swift */,
+				0611FE562B0AB88E008A6CDE /* CoreGraphics+Operators.swift */,
+			);
+			path = graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -607,6 +635,7 @@
 				0611FE032B0AA4A5008A6CDE /* AboutSceneFactory.swift in Sources */,
 				0611FE352B0AA4A5008A6CDE /* PrinciplesScenePresenter.swift in Sources */,
 				0611FE292B0AA4A5008A6CDE /* MainSceneFactory.swift in Sources */,
+				0611FE532B0AB86D008A6CDE /* CoreGraphics+Init.swift in Sources */,
 				0611FE372B0AA4A5008A6CDE /* PrinciplesSceneFactory.swift in Sources */,
 				0611FE1D2B0AA4A5008A6CDE /* ExperiencesSceneFactory.swift in Sources */,
 				0611FE272B0AA4A5008A6CDE /* MainSceneRouter.swift in Sources */,
@@ -626,6 +655,8 @@
 				0611FE152B0AA4A5008A6CDE /* NavigationWrapperView.swift in Sources */,
 				0611FE0F2B0AA4A5008A6CDE /* ContactSceneRouter.swift in Sources */,
 				0611FE332B0AA4A5008A6CDE /* PrinciplesSceneInteractor.swift in Sources */,
+				0611FE572B0AB88E008A6CDE /* CoreGraphics+Operators.swift in Sources */,
+				0611FE502B0AADF2008A6CDE /* NgonShape.swift in Sources */,
 				0611FDCD2B0AA075008A6CDE /* ServicesInjector.swift in Sources */,
 				0611FE2F2B0AA4A5008A6CDE /* PrinciplesSceneRouter.swift in Sources */,
 				0611FE1B2B0AA4A5008A6CDE /* ExperiencesScenePresenter.swift in Sources */,
@@ -647,6 +678,7 @@
 				0611FE2C2B0AA4A5008A6CDE /* MainSceneInteractor.swift in Sources */,
 				0611FE042B0AA4A5008A6CDE /* AboutSceneFactory.swift in Sources */,
 				0611FE362B0AA4A5008A6CDE /* PrinciplesScenePresenter.swift in Sources */,
+				0611FE542B0AB86D008A6CDE /* CoreGraphics+Init.swift in Sources */,
 				0611FE2A2B0AA4A5008A6CDE /* MainSceneFactory.swift in Sources */,
 				0611FE382B0AA4A5008A6CDE /* PrinciplesSceneFactory.swift in Sources */,
 				0611FE1E2B0AA4A5008A6CDE /* ExperiencesSceneFactory.swift in Sources */,
@@ -666,6 +698,8 @@
 				0611FE2E2B0AA4A5008A6CDE /* MainScenePresenter.swift in Sources */,
 				0611FE162B0AA4A5008A6CDE /* NavigationWrapperView.swift in Sources */,
 				0611FE102B0AA4A5008A6CDE /* ContactSceneRouter.swift in Sources */,
+				0611FE582B0AB88E008A6CDE /* CoreGraphics+Operators.swift in Sources */,
+				0611FE512B0AADF2008A6CDE /* NgonShape.swift in Sources */,
 				0611FE342B0AA4A5008A6CDE /* PrinciplesSceneInteractor.swift in Sources */,
 				0611FE302B0AA4A5008A6CDE /* PrinciplesSceneRouter.swift in Sources */,
 				0611FE1C2B0AA4A5008A6CDE /* ExperiencesScenePresenter.swift in Sources */,

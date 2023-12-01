@@ -3,5 +3,7 @@
 import SwiftUI
 
 public extension Image {
-      static let miscLogo = Self.init("logo")
+      static let logoMrk = Self.init("mrk")
+      static let logoPortal = Self.init("portal")
+      static let logoSpiral = Self.init("spiral")
 }

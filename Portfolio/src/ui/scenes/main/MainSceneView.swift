@@ -3,18 +3,36 @@
 import SwiftUI
 
 struct MainSceneView<P: MainScenePresenterProtocol>: View {
-
+    
     private let presenter: P
-
+    
     init(_ presenter: P) {
         self.presenter = presenter
     }
-
+    
     var body: some View {
-        Image
-            .miscLogo
-            .resizable()
-            .scaledToFit()
+        ZStack {
+            VStack {
+                Group {
+                    Image
+                        .logoSpiral
+                        .resizable()
+                    Image
+                        .logoPortal
+                        .resizable()
+                }
+                .foregroundColor(.red0)
+                .scaledToFit()
+            }
             .padding(.horizontal, 32)
+            
+            Image
+                .logoMrk
+                .resizable()
+                .foregroundColor(.base1)
+                .scaledToFit()
+                .padding(.horizontal, 32)
+            
+        }
     }
 }

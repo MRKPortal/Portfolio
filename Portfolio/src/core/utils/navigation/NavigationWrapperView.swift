@@ -39,7 +39,7 @@ struct NavigationWrapperView: View {
 private struct AppBackgroundModifier: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
-            Color.base0
+            Color.base2
                 .edgesIgnoringSafeArea(.all)
             content
                 .navigationBarBackButtonHidden(true)

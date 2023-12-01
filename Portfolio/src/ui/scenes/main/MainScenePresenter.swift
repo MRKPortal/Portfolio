@@ -15,6 +15,5 @@ final class MainScenePresenter: MainScenePresenterProtocol {
 		self.interactor = interactor
 		self.router = router
 	}
-
 }
 

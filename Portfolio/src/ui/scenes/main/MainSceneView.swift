@@ -28,6 +28,14 @@ struct MainSceneView<P: MainScenePresenterProtocol>: View {
                         .applyTextStyle(.h4())
                 }
                 .padding(32)
+                
+                VStack {
+                    Spacer()
+                    Lotties.dragUp
+                        .foregroundColor(.white)
+                        .frame(height: 64)
+                        .padding(.bottom, 16)
+                }
             }
             .opacity(opacity)
             .offset(offset)

@@ -10,6 +10,10 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Ls {
+  /// 
+  public static let appMoto = Ls.tr("Localizables", "app_moto", fallback: "A gate to quality")
+  /// 
+  public static let appName = Ls.tr("Localizables", "app_name", fallback: "MRKPortal OÜ")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

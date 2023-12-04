@@ -16,3 +16,9 @@ extension CGSize {
         .s(side, side)
     }
 }
+
+extension CGAffineTransform {
+    static func t(_ x: CGFloat, y: CGFloat) -> Self {
+        .init(translationX: x, y: y)
+    }
+}

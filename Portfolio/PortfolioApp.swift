@@ -17,14 +17,16 @@ struct PortfolioApp: App {
 }
 
 private struct ContentView: View {
-    
     private let injector = ServicesInjector()
-    private let navCoordinator = NavigationCoordinator()
-    
+    private var navCoordinator = NavigationCoordinator()
+
     var body: some View {
         NavigationWrapperView(
-            factory: MainSceneFactory(coordinator: navCoordinator, injector: injector),
             coordinator: navCoordinator
-        )
+        ).onAppear {
+            navCoordinator.pushView(
+                MainSceneFactory(coordinator: navCoordinator, injector: injector)
+            )
+        }
     }
 }

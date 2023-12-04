@@ -11,38 +11,27 @@ struct NavigationWrapperView: View {
     
     @ObservedObject private var navCoordinator: NavigationCoordinator
     
-    private let factory: Factory
+    @State var path: [Factory] = []
     
-    init(factory: Factory, coordinator: NavigationCoordinator) {
-        self.factory = factory
+    init(coordinator: NavigationCoordinator) {
         self.navCoordinator = coordinator
     }
     
     var body: some View {
-        NavigationStack(path: $navCoordinator.path) {
-            factory
-                .build()
-                .modifier(AppBackgroundModifier())
-                .navigationDestination(for: Factory.self) { factory in
-                    factory.build()
-                        .modifier(AppBackgroundModifier())
-                }
-        }.fullScreenCover(item: $navCoordinator.presentedFactory) { factory in
-            NavigationWrapperView(
-                factory: factory,
-                coordinator: factory.coordinator
-            )
-        }
-    }
-}
-
-private struct AppBackgroundModifier: ViewModifier {
-    func body(content: Content) -> some View {
         ZStack {
             Color.base2
                 .edgesIgnoringSafeArea(.all)
-            content
-                .navigationBarBackButtonHidden(true)
+            ZStack {
+                ForEach(path) { scene in
+                    scene.build()
+                        .zIndex(CGFloat(path.count))
+                        .transition(.move(edge: .bottom))
+                }
+            }
+        }.onChange(of: navCoordinator.path) { path in
+            withAnimation {
+                self.path = path
+            }
         }
     }
 }

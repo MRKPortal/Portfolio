@@ -6,33 +6,45 @@ struct MainSceneView<P: MainScenePresenterProtocol>: View {
     
     private let presenter: P
     
+    @State private var animate: Bool = false
+    @State private var color = [Color.yellow, .red, .blue, .green].randomElement()!
+    @State private var offset: CGSize = .zero
+    @State private var opacity: CGFloat = 1
+
     init(_ presenter: P) {
         self.presenter = presenter
     }
     
     var body: some View {
-        ZStack {
-            VStack {
-                Group {
+        GeometryReader { reader in
+            ZStack {
+                Color.base2
+                VStack {
                     Image
-                        .logoSpiral
+                        .logoFull
                         .resizable()
-                    Image
-                        .logoPortal
-                        .resizable()
+                        .scaledToFit()
+                    Text(Ls.appMoto)
+                        .applyTextStyle(.h4())
                 }
-                .foregroundColor(.red0)
-                .scaledToFit()
+                .padding(32)
             }
-            .padding(.horizontal, 32)
-            
-            Image
-                .logoMrk
-                .resizable()
-                .foregroundColor(.base1)
-                .scaledToFit()
-                .padding(.horizontal, 32)
-            
+            .opacity(opacity)
+            .offset(offset)
+            .gesture(
+                DragGesture()
+                    .onChanged { gesture in
+                        let y = min(0, gesture.translation.height)
+                        offset = .s(0, y)
+                        opacity = 1 + 2 * offset.height / reader.size.height
+                    }
+                    .onEnded { _ in
+                        withAnimation(.bouncy) {
+                            offset = .zero
+                            opacity = 1
+                        }
+                    }
+            )
         }
     }
 }

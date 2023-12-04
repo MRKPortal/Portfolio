@@ -2,7 +2,7 @@ input_dir: Portfolio/res/
 output_dir: Portfolio/res/
 strings:
   inputs:
-    - localizables/Localizables.strings
+    - localizables/en.lproj/Localizables.strings
   outputs:
     templateName: structured-swift5
     output: localizables/Localizables.swift

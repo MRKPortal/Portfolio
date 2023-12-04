@@ -11,22 +11,9 @@ import SwiftUI
 final class NavigationCoordinator: ObservableObject {
     
     private let id = UUID().uuidString
-    
-    private let presentingCoordinator: NavigationCoordinator?
-    
-    @Published var path = NavigationPath()
-    
-    @Published var presentedFactory: Factory? = nil
-    
-    init(_ presentingCoordinator: NavigationCoordinator? = nil ) {
-        self.presentingCoordinator = presentingCoordinator
-    }
-    
-    //MARK: PRESENT
-    func presentView(_ factory: Factory) {
-        presentedFactory = factory
-    }
 
+    @Published var path: [Factory] = []
+    
     //MARK: PUSH
 
     func pushView(_ factory: Factory) {
@@ -34,7 +21,7 @@ final class NavigationCoordinator: ObservableObject {
     }
     
     func pop() {
-        guard path.count > 0 else {
+        guard path.count > 1 else {
             return
         }
         path.removeLast()

@@ -3,7 +3,7 @@
 import Foundation
 
 protocol ExperiencesSceneRouterProtocol {
-
+    func pop()
 }
 
 final class ExperiencesSceneRouter: ExperiencesSceneRouterProtocol {
@@ -16,5 +16,8 @@ final class ExperiencesSceneRouter: ExperiencesSceneRouterProtocol {
         self.coordinator = coordinator
     }
 
+    func pop() {
+        coordinator.pop()
+    }
 }
 

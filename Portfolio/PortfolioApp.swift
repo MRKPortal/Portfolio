@@ -24,7 +24,8 @@ private struct ContentView: View {
         NavigationWrapperView(coordinator: navCoordinator)
             .onAppear {
                 navCoordinator.pushView(
-                    MainSceneFactory(coordinator: navCoordinator, injector: injector)
+                    factory: MainSceneFactory(coordinator: navCoordinator, injector: injector),
+                    direction: .up
                 )
             }
     }

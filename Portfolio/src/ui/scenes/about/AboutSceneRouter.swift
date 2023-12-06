@@ -4,7 +4,8 @@ import Foundation
 
 protocol AboutSceneRouterProtocol {
     func pop()
-    func nextScene()
+    func leftScene()
+    func rightScene()
 }
 
 final class AboutSceneRouter: AboutSceneRouterProtocol {
@@ -21,12 +22,18 @@ final class AboutSceneRouter: AboutSceneRouterProtocol {
         coordinator.pop()
     }
 
-    func nextScene() {
+    
+    func leftScene() {
         coordinator.pushView(
-            MainSceneFactory(
-                coordinator: coordinator,
-                injector: injector
-            )
+            factory: ExperiencesSceneFactory(coordinator: coordinator, injector: injector),
+            direction: .left
+        )
+    }
+    
+    func rightScene() {
+        coordinator.pushView(
+            factory: PrinciplesSceneFactory(coordinator: coordinator, injector: injector),
+            direction: .right
         )
     }
 }

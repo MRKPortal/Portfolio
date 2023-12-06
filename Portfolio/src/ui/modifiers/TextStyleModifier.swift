@@ -20,7 +20,7 @@ private struct TextStyleModifier: ViewModifier {
 }
 
 extension View {
-    func applyTextStyle(_ style: TextStyle)-> some View {
+    func applyTextStyle(_ style: TextStyle) -> some View {
         self.modifier(
             TextStyleModifier(style: style)
         )

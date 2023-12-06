@@ -11,6 +11,5 @@ final class PrinciplesSceneInteractor: PrinciplesSceneInteractorProtocol {
 	init(_ injector: ServicesInjectorProtocol) {
 
     }
-
 }
 

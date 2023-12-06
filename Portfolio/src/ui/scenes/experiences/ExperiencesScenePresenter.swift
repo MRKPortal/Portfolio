@@ -3,7 +3,7 @@
 import Foundation
 
 protocol ExperiencesScenePresenterProtocol {
-
+    func didTapBack()
 }
 
 final class ExperiencesScenePresenter: ExperiencesScenePresenterProtocol {
@@ -16,5 +16,8 @@ final class ExperiencesScenePresenter: ExperiencesScenePresenterProtocol {
 		self.router = router
 	}
 
+    func didTapBack() {
+        router.pop()
+    }
 }
 

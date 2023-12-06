@@ -25,17 +25,20 @@ private struct ParallaxModifier: ViewModifier {
         content
             .offset(offset)
             .onAppear {
-                motionManager.deviceMotionUpdateInterval = 1/60
-                motionManager.startDeviceMotionUpdates(to: .main) { data, error in
+                self.motionManager.deviceMotionUpdateInterval = 1/60
+                self.motionManager.startDeviceMotionUpdates(to: .main) { data, error in
                     guard let data else {
                         return
                     }
-                    
-                    offset = .s(
-                        data.gravity.x * x,
-                        data.gravity.z * y
+
+                    self.offset = .s(
+                        data.gravity.x * self.x,
+                        data.gravity.z * self.y
                     )
                 }
+            }
+            .onDisappear {
+                self.motionManager.stopDeviceMotionUpdates()
             }
     }
 }

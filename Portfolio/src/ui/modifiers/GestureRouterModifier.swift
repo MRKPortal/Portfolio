@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum GestureRouterDirection {
+enum NavigationDirection {
     case down
     case up
     case left
@@ -22,7 +22,7 @@ private struct GestureRouterModifier: ViewModifier {
     
     let routingCallback: DirectionCallback
     let speedThreshold: CGFloat
-    let directions: [GestureRouterDirection]
+    let directions: [NavigationDirection]
     
     func body(content: Content) -> some View {
         GeometryReader { reader in
@@ -64,13 +64,13 @@ private struct GestureRouterModifier: ViewModifier {
     }
 }
 
-extension GestureRouterDirection {
+extension NavigationDirection {
     func satisfiesUpdate(_ gesture: DragGesture.Value) -> Bool {
         switch self {
-        case .down: gesture.translation.height > 0
-        case .up: gesture.translation.height < 0
-        case .left: gesture.translation.width > 0
-        case .right: gesture.translation.width < 0
+        case .down: gesture.translation.height > 0 && gesture.translation.isHeightBigger
+        case .up: gesture.translation.height < 0 && gesture.translation.isHeightBigger
+        case .left: gesture.translation.width < 0 && gesture.translation.isWidthBigger
+        case .right: gesture.translation.width > 0 && gesture.translation.isWidthBigger
         }
     }
 
@@ -78,8 +78,8 @@ extension GestureRouterDirection {
         switch self {
         case .up: -gesture.translation.height > screenSize.height/2 || -gesture.velocity.height > speedThreshold
         case .down: gesture.translation.height > screenSize.height/2 || gesture.velocity.height > speedThreshold
-        case .left: false
-        case .right: false
+        case .left: -gesture.translation.height > screenSize.height/2 || -gesture.velocity.width > speedThreshold
+        case .right: gesture.translation.width > screenSize.width/2 || gesture.velocity.width > speedThreshold
         }
     }
     
@@ -93,9 +93,9 @@ extension GestureRouterDirection {
     func calculateOpacity(_ gesture: DragGesture.Value, _ screenSize: CGSize) -> CGFloat {
         switch self {
         case .down: 1 + 2 * gesture.translation.height / screenSize.height
-        case .up: 1
-        case .left: 1
-        case .right: 1
+        case .up: 1 - 2 * gesture.translation.height / screenSize.height
+        case .left: 1 - 2 * gesture.translation.width / screenSize.width
+        case .right: 1 + 2 * gesture.translation.width / screenSize.width
         }
     }
     
@@ -103,15 +103,15 @@ extension GestureRouterDirection {
         switch self {
         case .down: .s(0, screenSize.height)
         case .up: .s(0, -screenSize.height)
-        case .left: .zero
-        case .right: .zero
+        case .left: .s(-screenSize.width, 0)
+        case .right: .s(screenSize.width, 0)
         }
     }
 }
 
 extension View {
     func gestureRouter(
-        directions: [GestureRouterDirection] = [.up],
+        directions: [NavigationDirection] = [.up],
         speedThreshold: CGFloat = 2000,
         routingCallback: @escaping DirectionCallback)-> some View {
         self.modifier(

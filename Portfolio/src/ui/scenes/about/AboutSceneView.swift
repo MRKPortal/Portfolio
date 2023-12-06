@@ -62,12 +62,14 @@ struct AboutSceneView<P: AboutScenePresenterProtocol>: View {
                 )
                 .parallax(x: 200, y: -200)
         }
-        .gestureRouter(directions: [.up, .down]) { direction in
+        .gestureRouter(directions: [.left, .right, .down]) { direction in
             switch direction {
             case .down:
                 presenter.didTapBack()
+            case .left:
+                presenter.didSwipeLeft()
             default:
-                presenter.didTapNext()
+                presenter.didSwipeRight()
             }
         }
     }

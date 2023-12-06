@@ -3,7 +3,7 @@
 import Foundation
 
 protocol PrinciplesScenePresenterProtocol {
-
+    func didTapBack()
 }
 
 final class PrinciplesScenePresenter: PrinciplesScenePresenterProtocol {
@@ -15,6 +15,9 @@ final class PrinciplesScenePresenter: PrinciplesScenePresenterProtocol {
 		self.interactor = interactor
 		self.router = router
 	}
-
+    
+    func didTapBack() {
+        router.previousScene()
+    }
 }
 

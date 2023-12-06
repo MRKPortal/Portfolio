@@ -10,7 +10,7 @@ import SwiftUI
 class Factory: Hashable, Identifiable {
     let coordinator: NavigationCoordinator
     let injector: ServicesInjectorProtocol
-    
+
     init(coordinator: NavigationCoordinator, injector: ServicesInjectorProtocol) {
         self.coordinator = coordinator
         self.injector = injector

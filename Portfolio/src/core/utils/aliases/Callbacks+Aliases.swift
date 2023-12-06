@@ -8,4 +8,4 @@
 import Foundation
 
 typealias VoidCallback = () -> ()
-typealias DirectionCallback = (GestureRouterDirection) -> ()
+typealias DirectionCallback = (NavigationDirection) -> ()

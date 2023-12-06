@@ -3,7 +3,7 @@
 import Foundation
 
 protocol PrinciplesSceneRouterProtocol {
-
+    func previousScene()
 }
 
 final class PrinciplesSceneRouter: PrinciplesSceneRouterProtocol {
@@ -16,5 +16,8 @@ final class PrinciplesSceneRouter: PrinciplesSceneRouterProtocol {
         self.coordinator = coordinator
     }
 
+    func previousScene() {
+        coordinator.pop()
+    }
 }
 

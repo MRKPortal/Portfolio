@@ -3,14 +3,22 @@
 import SwiftUI
 
 struct PrinciplesSceneView<P: PrinciplesScenePresenterProtocol>: View {
-
+    
     private let presenter: P
-
+    
     init(_ presenter: P) {
         self.presenter = presenter
     }
-
+    
     var body: some View {
-        Color.clear
+        ZStack {
+            Color
+                .base2
+            Text("LEFT")
+                .applyTextStyle(.h2())
+        }
+        .gestureRouter(directions: [.left]) { _ in
+            presenter.didTapBack()
+        }
     }
 }

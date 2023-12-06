@@ -18,7 +18,7 @@ final class ExperiencesScenePresenter: ExperiencesScenePresenterProtocol {
 	init(_ interactor: ExperiencesSceneInteractorProtocol, router: ExperiencesSceneRouterProtocol) {
 		self.interactor = interactor
 		self.router = router
-        self.distributor = HiveDistributor(5)
+        self.distributor = HiveDistributor(5, horizontalLimit: 4)
 	}
 
     func didTapBack() {

@@ -18,7 +18,7 @@ final class MainSceneRouter: MainSceneRouterProtocol {
 
     func nextScene() {
         coordinator.pushView(
-            factory: ExperiencesSceneFactory(coordinator: coordinator,injector: injector),
+            factory: AboutSceneFactory(coordinator: coordinator,injector: injector),
             direction: .up
         )
     }

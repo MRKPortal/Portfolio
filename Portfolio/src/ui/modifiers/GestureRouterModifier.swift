@@ -19,7 +19,9 @@ private struct GestureRouterModifier: ViewModifier {
 
     @State private var offset: CGSize = .zero
     @State private var opacity: CGFloat = 1
-    
+
+    private let generator = UIImpactFeedbackGenerator(style: .light)
+
     let routingCallback: DirectionCallback
     let speedThreshold: CGFloat
     let directions: [NavigationDirection]
@@ -43,6 +45,7 @@ private struct GestureRouterModifier: ViewModifier {
                             withAnimation(.bouncy) {
                                 if let direction = directions.first(where: { $0.satisfiesEnd(gesture, reader.size, speedThreshold) }) {
                                     routingCallback(direction)
+                                    generator.impactOccurred()
                                     offset = direction.finalOffset(reader.size)
                                     opacity = 0
                                 } else {
@@ -76,10 +79,10 @@ extension NavigationDirection {
 
     func satisfiesEnd(_ gesture: DragGesture.Value, _ screenSize: CGSize, _ speedThreshold: CGFloat) -> Bool {
         switch self {
-        case .up: -gesture.translation.height > screenSize.height/2 || -gesture.velocity.height > speedThreshold
-        case .down: gesture.translation.height > screenSize.height/2 || gesture.velocity.height > speedThreshold
-        case .left: -gesture.translation.height > screenSize.height/2 || -gesture.velocity.width > speedThreshold
-        case .right: gesture.translation.width > screenSize.width/2 || gesture.velocity.width > speedThreshold
+        case .up: -gesture.translation.height > screenSize.height/4 || -gesture.velocity.height > speedThreshold
+        case .down: gesture.translation.height > screenSize.height/4 || gesture.velocity.height > speedThreshold
+        case .left: -gesture.translation.height > screenSize.height/4 || -gesture.velocity.width > speedThreshold
+        case .right: gesture.translation.width > screenSize.width/4 || gesture.velocity.width > speedThreshold
         }
     }
     
@@ -92,10 +95,10 @@ extension NavigationDirection {
     
     func calculateOpacity(_ gesture: DragGesture.Value, _ screenSize: CGSize) -> CGFloat {
         switch self {
-        case .down: 1 + 2 * gesture.translation.height / screenSize.height
-        case .up: 1 - 2 * gesture.translation.height / screenSize.height
-        case .left: 1 - 2 * gesture.translation.width / screenSize.width
-        case .right: 1 + 2 * gesture.translation.width / screenSize.width
+        case .down: 1 - 2 * gesture.translation.height / screenSize.height
+        case .up: 1 + 2 * gesture.translation.height / screenSize.height
+        case .left: 1 + 2 * gesture.translation.width / screenSize.width
+        case .right: 1 - 2 * gesture.translation.width / screenSize.width
         }
     }
     
@@ -112,7 +115,7 @@ extension NavigationDirection {
 extension View {
     func gestureRouter(
         directions: [NavigationDirection] = [.up],
-        speedThreshold: CGFloat = 2000,
+        speedThreshold: CGFloat = 1000,
         routingCallback: @escaping DirectionCallback)-> some View {
         self.modifier(
             GestureRouterModifier(

@@ -7,9 +7,8 @@
 
 import CoreGraphics
 
-public typealias DistributorGroup = Range<Int>
+public typealias DistributorPosition = [CGPoint]
 
 public protocol DistributorProtocol {
-    var groups: [DistributorGroup] { get }
-    func position(at index: Int) -> CGPoint
+    var positionGroups: [DistributorPosition] { get }
 }

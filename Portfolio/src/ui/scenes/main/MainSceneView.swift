@@ -5,7 +5,6 @@ import UIKit
 
 struct MainSceneView<P: MainScenePresenterProtocol>: View {
     private let presenter: P
-    private let generator = UINotificationFeedbackGenerator()
 
     @State private var animate: Bool = false
     
@@ -36,7 +35,6 @@ struct MainSceneView<P: MainScenePresenterProtocol>: View {
             }   
         }
         .gestureRouter { _ in
-            generator.notificationOccurred(.success)
             presenter.didSwipe()
         }
     }

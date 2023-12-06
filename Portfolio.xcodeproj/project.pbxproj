@@ -60,8 +60,6 @@
 		0611FE282B0AA4A5008A6CDE /* MainSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDF72B0AA4A5008A6CDE /* MainSceneRouter.swift */; };
 		0611FE292B0AA4A5008A6CDE /* MainSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDF82B0AA4A5008A6CDE /* MainSceneFactory.swift */; };
 		0611FE2A2B0AA4A5008A6CDE /* MainSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDF82B0AA4A5008A6CDE /* MainSceneFactory.swift */; };
-		0611FE2B2B0AA4A5008A6CDE /* MainSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDF92B0AA4A5008A6CDE /* MainSceneInteractor.swift */; };
-		0611FE2C2B0AA4A5008A6CDE /* MainSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDF92B0AA4A5008A6CDE /* MainSceneInteractor.swift */; };
 		0611FE2D2B0AA4A5008A6CDE /* MainScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDFA2B0AA4A5008A6CDE /* MainScenePresenter.swift */; };
 		0611FE2E2B0AA4A5008A6CDE /* MainScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDFA2B0AA4A5008A6CDE /* MainScenePresenter.swift */; };
 		0611FE2F2B0AA4A5008A6CDE /* PrinciplesSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDFC2B0AA4A5008A6CDE /* PrinciplesSceneRouter.swift */; };
@@ -96,6 +94,12 @@
 		0645302C2B20E04100E7880D /* IdentifiableEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645302A2B20E04100E7880D /* IdentifiableEquatable.swift */; };
 		0645302E2B20E54400E7880D /* CoreGraphics+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645302D2B20E54400E7880D /* CoreGraphics+Comparison.swift */; };
 		0645302F2B20E54400E7880D /* CoreGraphics+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645302D2B20E54400E7880D /* CoreGraphics+Comparison.swift */; };
+		064530322B2102FA00E7880D /* HiveDistributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530312B2102FA00E7880D /* HiveDistributor.swift */; };
+		064530332B2102FA00E7880D /* HiveDistributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530312B2102FA00E7880D /* HiveDistributor.swift */; };
+		064530352B21033F00E7880D /* DistributorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530342B21033F00E7880D /* DistributorProtocol.swift */; };
+		064530362B21033F00E7880D /* DistributorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530342B21033F00E7880D /* DistributorProtocol.swift */; };
+		064530382B2124A100E7880D /* View+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530372B2124A100E7880D /* View+Frame.swift */; };
+		064530392B2124A100E7880D /* View+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530372B2124A100E7880D /* View+Frame.swift */; };
 		06B186BC2B1E27EA005BEA60 /* ParallaxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */; };
 		06B186BD2B1E27EA005BEA60 /* ParallaxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */; };
 		06C0AD4E2B1E3E380003249B /* Localizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06C0AD512B1E3E380003249B /* Localizables.strings */; };
@@ -172,7 +176,6 @@
 		0611FDF62B0AA4A5008A6CDE /* MainSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSceneView.swift; sourceTree = "<group>"; };
 		0611FDF72B0AA4A5008A6CDE /* MainSceneRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSceneRouter.swift; sourceTree = "<group>"; };
 		0611FDF82B0AA4A5008A6CDE /* MainSceneFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSceneFactory.swift; sourceTree = "<group>"; };
-		0611FDF92B0AA4A5008A6CDE /* MainSceneInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSceneInteractor.swift; sourceTree = "<group>"; };
 		0611FDFA2B0AA4A5008A6CDE /* MainScenePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScenePresenter.swift; sourceTree = "<group>"; };
 		0611FDFC2B0AA4A5008A6CDE /* PrinciplesSceneRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinciplesSceneRouter.swift; sourceTree = "<group>"; };
 		0611FDFD2B0AA4A5008A6CDE /* PrinciplesSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinciplesSceneView.swift; sourceTree = "<group>"; };
@@ -191,6 +194,9 @@
 		064530262B20B58700E7880D /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		0645302A2B20E04100E7880D /* IdentifiableEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableEquatable.swift; sourceTree = "<group>"; };
 		0645302D2B20E54400E7880D /* CoreGraphics+Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Comparison.swift"; sourceTree = "<group>"; };
+		064530312B2102FA00E7880D /* HiveDistributor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveDistributor.swift; sourceTree = "<group>"; };
+		064530342B21033F00E7880D /* DistributorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributorProtocol.swift; sourceTree = "<group>"; };
+		064530372B2124A100E7880D /* View+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Frame.swift"; sourceTree = "<group>"; };
 		06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxModifier.swift; sourceTree = "<group>"; };
 		06C0AD502B1E3E380003249B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizables.strings; sourceTree = "<group>"; };
 		06C0AD522B1E3EB00003249B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizables.strings; sourceTree = "<group>"; };
@@ -341,6 +347,7 @@
 		0611FD912B0AA024008A6CDE /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				064530302B2102DA00E7880D /* distributor */,
 				064530292B20E03700E7880D /* protocols */,
 				06C0AD732B1E8DEA0003249B /* aliases */,
 				06C0AD5A2B1E40390003249B /* enums */,
@@ -457,7 +464,6 @@
 				0611FDF62B0AA4A5008A6CDE /* MainSceneView.swift */,
 				0611FDF72B0AA4A5008A6CDE /* MainSceneRouter.swift */,
 				0611FDF82B0AA4A5008A6CDE /* MainSceneFactory.swift */,
-				0611FDF92B0AA4A5008A6CDE /* MainSceneInteractor.swift */,
 				0611FDFA2B0AA4A5008A6CDE /* MainScenePresenter.swift */,
 			);
 			path = main;
@@ -516,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				064530262B20B58700E7880D /* View+Navigation.swift */,
+				064530372B2124A100E7880D /* View+Frame.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -526,6 +533,15 @@
 				0645302A2B20E04100E7880D /* IdentifiableEquatable.swift */,
 			);
 			path = protocols;
+			sourceTree = "<group>";
+		};
+		064530302B2102DA00E7880D /* distributor */ = {
+			isa = PBXGroup;
+			children = (
+				064530312B2102FA00E7880D /* HiveDistributor.swift */,
+				064530342B21033F00E7880D /* DistributorProtocol.swift */,
+			);
+			path = distributor;
 			sourceTree = "<group>";
 		};
 		06B186BA2B1E27DD005BEA60 /* modifiers */ = {
@@ -765,11 +781,12 @@
 				0645302B2B20E04100E7880D /* IdentifiableEquatable.swift in Sources */,
 				0611FE252B0AA4A5008A6CDE /* MainSceneView.swift in Sources */,
 				06C0AD6E2B1E45C10003249B /* Lotties.swift in Sources */,
+				064530352B21033F00E7880D /* DistributorProtocol.swift in Sources */,
+				064530322B2102FA00E7880D /* HiveDistributor.swift in Sources */,
 				0611FE112B0AA4A5008A6CDE /* ContactSceneFactory.swift in Sources */,
 				0645302E2B20E54400E7880D /* CoreGraphics+Comparison.swift in Sources */,
 				0611FE442B0AA63A008A6CDE /* Icons.swift in Sources */,
 				0611FE172B0AA4A5008A6CDE /* NavigationCoordinator.swift in Sources */,
-				0611FE2B2B0AA4A5008A6CDE /* MainSceneInteractor.swift in Sources */,
 				0611FE032B0AA4A5008A6CDE /* AboutSceneFactory.swift in Sources */,
 				0611FE352B0AA4A5008A6CDE /* PrinciplesScenePresenter.swift in Sources */,
 				0611FE292B0AA4A5008A6CDE /* MainSceneFactory.swift in Sources */,
@@ -777,6 +794,7 @@
 				0611FE372B0AA4A5008A6CDE /* PrinciplesSceneFactory.swift in Sources */,
 				0611FE1D2B0AA4A5008A6CDE /* ExperiencesSceneFactory.swift in Sources */,
 				0611FE272B0AA4A5008A6CDE /* MainSceneRouter.swift in Sources */,
+				064530382B2124A100E7880D /* View+Frame.swift in Sources */,
 				06C0AD5F2B1E40D10003249B /* TextStyleModifier.swift in Sources */,
 				0611FE312B0AA4A5008A6CDE /* PrinciplesSceneView.swift in Sources */,
 				0611FE0D2B0AA4A5008A6CDE /* ContactSceneInteractor.swift in Sources */,
@@ -820,18 +838,20 @@
 				0645302C2B20E04100E7880D /* IdentifiableEquatable.swift in Sources */,
 				0611FD542B0A9FBC008A6CDE /* PortfolioTests.swift in Sources */,
 				06C0AD6F2B1E45C10003249B /* Lotties.swift in Sources */,
+				064530362B21033F00E7880D /* DistributorProtocol.swift in Sources */,
+				064530332B2102FA00E7880D /* HiveDistributor.swift in Sources */,
 				0611FE262B0AA4A5008A6CDE /* MainSceneView.swift in Sources */,
 				0645302F2B20E54400E7880D /* CoreGraphics+Comparison.swift in Sources */,
 				0611FE452B0AA63A008A6CDE /* Icons.swift in Sources */,
 				0611FE122B0AA4A5008A6CDE /* ContactSceneFactory.swift in Sources */,
 				0611FE182B0AA4A5008A6CDE /* NavigationCoordinator.swift in Sources */,
-				0611FE2C2B0AA4A5008A6CDE /* MainSceneInteractor.swift in Sources */,
 				0611FE042B0AA4A5008A6CDE /* AboutSceneFactory.swift in Sources */,
 				0611FE362B0AA4A5008A6CDE /* PrinciplesScenePresenter.swift in Sources */,
 				0611FE542B0AB86D008A6CDE /* CoreGraphics+Init.swift in Sources */,
 				0611FE2A2B0AA4A5008A6CDE /* MainSceneFactory.swift in Sources */,
 				0611FE382B0AA4A5008A6CDE /* PrinciplesSceneFactory.swift in Sources */,
 				0611FE1E2B0AA4A5008A6CDE /* ExperiencesSceneFactory.swift in Sources */,
+				064530392B2124A100E7880D /* View+Frame.swift in Sources */,
 				06C0AD602B1E40D10003249B /* TextStyleModifier.swift in Sources */,
 				0611FE282B0AA4A5008A6CDE /* MainSceneRouter.swift in Sources */,
 				0611FE322B0AA4A5008A6CDE /* PrinciplesSceneView.swift in Sources */,

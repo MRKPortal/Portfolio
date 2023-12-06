@@ -16,3 +16,9 @@ extension Array where Element: Equatable {
         return first == element
     }
 }
+
+extension Array where Element == CGPoint {
+    func containsFloat(_ e: Element, errorThreshold: CGFloat = 0.0001) -> Bool {
+        first(where: { $0.isEqual(value: e, errorThreshold: errorThreshold) }) != nil
+    }
+}

@@ -6,19 +6,39 @@ struct ExperiencesSceneView<P: ExperiencesScenePresenterProtocol>: View {
 
     private let presenter: P
     
+    @State var animate = false
+    
     init(_ presenter: P) {
         self.presenter = presenter
     }
     
     var body: some View {
-        ZStack {
-            Color
-                .base2
-            Text("RIGHT")
-                .applyTextStyle(.h2())
+        GeometryReader { reader in
+            ZStack {
+                Color
+                    .base2
+                ForEach(Array(presenter.distributor.groups.enumerated()), id: \.offset) { offset, group in
+                    ForEach(group, id: \.self) { index in
+                        let side = reader.size.width / 3
+                        let pos = presenter.distributor.position(at: index) * side * 0.95
+                        let delay = CGFloat(offset) * 0.15
+                        Color.red
+                            .clipShape(NgonShape(points: 6))
+                            .frame(size: .s(side))
+                            .transformEffect(.t(pos.x, y: pos.y))
+                            .opacity(animate ? 1 : 0)
+                            .scaleEffect(animate ? 1 : 0.5)
+                            .animation(.bouncy(duration: 1, extraBounce: 0.5).delay(delay), value: animate)
+                    }
+                }
+            }
         }
+        .parallax(x: 150, y: 50)
         .gestureRouter(directions: [.right]) { _ in
             presenter.didTapBack()
+        }
+        .onAppear {
+            animate.toggle()
         }
     }
 }

@@ -3,6 +3,8 @@
 import Foundation
 
 protocol ExperiencesScenePresenterProtocol {
+    var distributor: DistributorProtocol { get }
+
     func didTapBack()
 }
 
@@ -11,9 +13,12 @@ final class ExperiencesScenePresenter: ExperiencesScenePresenterProtocol {
 	private let interactor: ExperiencesSceneInteractorProtocol
 	private let router: ExperiencesSceneRouterProtocol
 
+    let distributor: DistributorProtocol
+    
 	init(_ interactor: ExperiencesSceneInteractorProtocol, router: ExperiencesSceneRouterProtocol) {
 		self.interactor = interactor
 		self.router = router
+        self.distributor = HiveDistributor(5)
 	}
 
     func didTapBack() {

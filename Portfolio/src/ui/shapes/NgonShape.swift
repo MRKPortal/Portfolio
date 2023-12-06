@@ -19,10 +19,10 @@ struct NgonShape: Shape {
         var path = Path()
         (0..<points).forEach { point in
             let floatPoint = CGFloat(point)
-            let angle = floatPoint * (2 * .pi) / floatTotal
+            let radians = floatPoint * (2 * .pi) / floatTotal + (.pi / 2)
             let coords = center + CGPoint(
-                x: radius * cos(angle),
-                y: radius * sin(angle)
+                x: radius * cos(radians),
+                y: radius * sin(radians)
             )
             
             if point == 0 {

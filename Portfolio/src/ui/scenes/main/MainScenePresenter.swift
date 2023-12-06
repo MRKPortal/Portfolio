@@ -3,20 +3,18 @@
 import Foundation
 
 protocol MainScenePresenterProtocol {
-    func didTapNext()
+    func didSwipe()
 }
 
 final class MainScenePresenter: MainScenePresenterProtocol {
 
-	private let interactor: MainSceneInteractorProtocol
 	private let router: MainSceneRouterProtocol
 
-	init(_ interactor: MainSceneInteractorProtocol, router: MainSceneRouterProtocol) {
-		self.interactor = interactor
+	init(_ router: MainSceneRouterProtocol) {
 		self.router = router
 	}
     
-    func didTapNext() {
+    func didSwipe() {
         router.nextScene()
     }
 }

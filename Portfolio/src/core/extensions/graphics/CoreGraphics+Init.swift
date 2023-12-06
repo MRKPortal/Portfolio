@@ -22,3 +22,9 @@ extension CGAffineTransform {
         .init(translationX: x, y: y)
     }
 }
+
+extension CGPoint {
+    static func p(_ x: CGFloat, _ y: CGFloat) -> Self {
+        .init(x: x, y: y)
+    }
+}

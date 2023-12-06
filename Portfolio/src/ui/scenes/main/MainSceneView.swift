@@ -37,7 +37,7 @@ struct MainSceneView<P: MainScenePresenterProtocol>: View {
         }
         .gestureRouter { _ in
             generator.notificationOccurred(.success)
-            presenter.didTapNext()
+            presenter.didSwipe()
         }
     }
 }

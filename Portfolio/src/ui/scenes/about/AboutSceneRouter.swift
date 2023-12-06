@@ -3,7 +3,8 @@
 import Foundation
 
 protocol AboutSceneRouterProtocol {
-
+    func pop()
+    func nextScene()
 }
 
 final class AboutSceneRouter: AboutSceneRouterProtocol {
@@ -15,6 +16,18 @@ final class AboutSceneRouter: AboutSceneRouterProtocol {
         self.injector = injector
         self.coordinator = coordinator
     }
+    
+    func pop() {
+        coordinator.pop()
+    }
 
+    func nextScene() {
+        coordinator.pushView(
+            MainSceneFactory(
+                coordinator: coordinator,
+                injector: injector
+            )
+        )
+    }
 }
 

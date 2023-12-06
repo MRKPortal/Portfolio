@@ -88,6 +88,10 @@
 		0611FE542B0AB86D008A6CDE /* CoreGraphics+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE522B0AB86D008A6CDE /* CoreGraphics+Init.swift */; };
 		0611FE572B0AB88E008A6CDE /* CoreGraphics+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE562B0AB88E008A6CDE /* CoreGraphics+Operators.swift */; };
 		0611FE582B0AB88E008A6CDE /* CoreGraphics+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FE562B0AB88E008A6CDE /* CoreGraphics+Operators.swift */; };
+		064530232B20B55700E7880D /* Array+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530222B20B55700E7880D /* Array+Comparable.swift */; };
+		064530242B20B55700E7880D /* Array+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530222B20B55700E7880D /* Array+Comparable.swift */; };
+		064530272B20B58700E7880D /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530262B20B58700E7880D /* View+Navigation.swift */; };
+		064530282B20B58700E7880D /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530262B20B58700E7880D /* View+Navigation.swift */; };
 		06B186BC2B1E27EA005BEA60 /* ParallaxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */; };
 		06B186BD2B1E27EA005BEA60 /* ParallaxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */; };
 		06C0AD4E2B1E3E380003249B /* Localizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06C0AD512B1E3E380003249B /* Localizables.strings */; };
@@ -107,6 +111,10 @@
 		06C0AD6C2B1E45A50003249B /* drag_up.json in Resources */ = {isa = PBXBuildFile; fileRef = 06C0AD6A2B1E45A50003249B /* drag_up.json */; };
 		06C0AD6E2B1E45C10003249B /* Lotties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C0AD6D2B1E45C10003249B /* Lotties.swift */; };
 		06C0AD6F2B1E45C10003249B /* Lotties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C0AD6D2B1E45C10003249B /* Lotties.swift */; };
+		06C0AD712B1E8C7E0003249B /* GestureRouterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C0AD702B1E8C7E0003249B /* GestureRouterModifier.swift */; };
+		06C0AD722B1E8C7E0003249B /* GestureRouterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C0AD702B1E8C7E0003249B /* GestureRouterModifier.swift */; };
+		06C0AD752B1E8DFE0003249B /* Callbacks+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C0AD742B1E8DFE0003249B /* Callbacks+Aliases.swift */; };
+		06C0AD762B1E8DFE0003249B /* Callbacks+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C0AD742B1E8DFE0003249B /* Callbacks+Aliases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +183,8 @@
 		0611FE4F2B0AADF2008A6CDE /* NgonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NgonShape.swift; sourceTree = "<group>"; };
 		0611FE522B0AB86D008A6CDE /* CoreGraphics+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Init.swift"; sourceTree = "<group>"; };
 		0611FE562B0AB88E008A6CDE /* CoreGraphics+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Operators.swift"; sourceTree = "<group>"; };
+		064530222B20B55700E7880D /* Array+Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Comparable.swift"; sourceTree = "<group>"; };
+		064530262B20B58700E7880D /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxModifier.swift; sourceTree = "<group>"; };
 		06C0AD502B1E3E380003249B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizables.strings; sourceTree = "<group>"; };
 		06C0AD522B1E3EB00003249B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizables.strings; sourceTree = "<group>"; };
@@ -185,6 +195,8 @@
 		06C0AD632B1E451A0003249B /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		06C0AD6A2B1E45A50003249B /* drag_up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drag_up.json; sourceTree = "<group>"; };
 		06C0AD6D2B1E45C10003249B /* Lotties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotties.swift; sourceTree = "<group>"; };
+		06C0AD702B1E8C7E0003249B /* GestureRouterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRouterModifier.swift; sourceTree = "<group>"; };
+		06C0AD742B1E8DFE0003249B /* Callbacks+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Callbacks+Aliases.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +335,7 @@
 		0611FD912B0AA024008A6CDE /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				06C0AD732B1E8DEA0003249B /* aliases */,
 				06C0AD5A2B1E40390003249B /* enums */,
 				0611FE4D2B0AA890008A6CDE /* navigation */,
 				0611FD922B0AA024008A6CDE /* services */,
@@ -341,6 +354,8 @@
 		0611FD932B0AA024008A6CDE /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				064530252B20B57A00E7880D /* view */,
+				064530212B20B54900E7880D /* array */,
 				0611FE552B0AB873008A6CDE /* graphics */,
 			);
 			path = extensions;
@@ -481,11 +496,28 @@
 			path = graphics;
 			sourceTree = "<group>";
 		};
+		064530212B20B54900E7880D /* array */ = {
+			isa = PBXGroup;
+			children = (
+				064530222B20B55700E7880D /* Array+Comparable.swift */,
+			);
+			path = array;
+			sourceTree = "<group>";
+		};
+		064530252B20B57A00E7880D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				064530262B20B58700E7880D /* View+Navigation.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		06B186BA2B1E27DD005BEA60 /* modifiers */ = {
 			isa = PBXGroup;
 			children = (
 				06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */,
 				06C0AD5E2B1E40D10003249B /* TextStyleModifier.swift */,
+				06C0AD702B1E8C7E0003249B /* GestureRouterModifier.swift */,
 			);
 			path = modifiers;
 			sourceTree = "<group>";
@@ -530,6 +562,14 @@
 				06C0AD6D2B1E45C10003249B /* Lotties.swift */,
 			);
 			path = lotties;
+			sourceTree = "<group>";
+		};
+		06C0AD732B1E8DEA0003249B /* aliases */ = {
+			isa = PBXGroup;
+			children = (
+				06C0AD742B1E8DFE0003249B /* Callbacks+Aliases.swift */,
+			);
+			path = aliases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -705,6 +745,7 @@
 				0611FE012B0AA4A5008A6CDE /* AboutSceneView.swift in Sources */,
 				0611FDDD2B0AA3D8008A6CDE /* ColorScheme.swift in Sources */,
 				0611FE3E2B0AA616008A6CDE /* Localizables.swift in Sources */,
+				06C0AD712B1E8C7E0003249B /* GestureRouterModifier.swift in Sources */,
 				0611FE252B0AA4A5008A6CDE /* MainSceneView.swift in Sources */,
 				06C0AD6E2B1E45C10003249B /* Lotties.swift in Sources */,
 				0611FE112B0AA4A5008A6CDE /* ContactSceneFactory.swift in Sources */,
@@ -724,15 +765,18 @@
 				0611FE132B0AA4A5008A6CDE /* ContactSceneView.swift in Sources */,
 				06C0AD5C2B1E40430003249B /* TextStyle.swift in Sources */,
 				0611FE232B0AA4A5008A6CDE /* ExperiencesSceneRouter.swift in Sources */,
+				064530232B20B55700E7880D /* Array+Comparable.swift in Sources */,
 				0611FE052B0AA4A5008A6CDE /* AboutSceneRouter.swift in Sources */,
 				0611FD422B0A9FBC008A6CDE /* PortfolioApp.swift in Sources */,
 				0611FE212B0AA4A5008A6CDE /* ExperiencesSceneView.swift in Sources */,
 				0611FE192B0AA4A5008A6CDE /* Factory.swift in Sources */,
+				06C0AD752B1E8DFE0003249B /* Callbacks+Aliases.swift in Sources */,
 				0611FE072B0AA4A5008A6CDE /* AboutScenePresenter.swift in Sources */,
 				0611FE0B2B0AA4A5008A6CDE /* ContactScenePresenter.swift in Sources */,
 				06C0AD642B1E451A0003249B /* LottieView.swift in Sources */,
 				06B186BC2B1E27EA005BEA60 /* ParallaxModifier.swift in Sources */,
 				0611FE1F2B0AA4A5008A6CDE /* ExperiencesSceneInteractor.swift in Sources */,
+				064530272B20B58700E7880D /* View+Navigation.swift in Sources */,
 				0611FE092B0AA4A5008A6CDE /* AboutSceneInteractor.swift in Sources */,
 				0611FE2D2B0AA4A5008A6CDE /* MainScenePresenter.swift in Sources */,
 				0611FE152B0AA4A5008A6CDE /* NavigationWrapperView.swift in Sources */,
@@ -754,6 +798,7 @@
 				0611FDDE2B0AA3D8008A6CDE /* ColorScheme.swift in Sources */,
 				0611FE022B0AA4A5008A6CDE /* AboutSceneView.swift in Sources */,
 				0611FE3F2B0AA616008A6CDE /* Localizables.swift in Sources */,
+				06C0AD722B1E8C7E0003249B /* GestureRouterModifier.swift in Sources */,
 				0611FD542B0A9FBC008A6CDE /* PortfolioTests.swift in Sources */,
 				06C0AD6F2B1E45C10003249B /* Lotties.swift in Sources */,
 				0611FE262B0AA4A5008A6CDE /* MainSceneView.swift in Sources */,
@@ -773,15 +818,18 @@
 				0611FE0E2B0AA4A5008A6CDE /* ContactSceneInteractor.swift in Sources */,
 				06C0AD5D2B1E40430003249B /* TextStyle.swift in Sources */,
 				0611FE142B0AA4A5008A6CDE /* ContactSceneView.swift in Sources */,
+				064530242B20B55700E7880D /* Array+Comparable.swift in Sources */,
 				0611FE242B0AA4A5008A6CDE /* ExperiencesSceneRouter.swift in Sources */,
 				0611FE062B0AA4A5008A6CDE /* AboutSceneRouter.swift in Sources */,
 				0611FE222B0AA4A5008A6CDE /* ExperiencesSceneView.swift in Sources */,
 				0611FE1A2B0AA4A5008A6CDE /* Factory.swift in Sources */,
+				06C0AD762B1E8DFE0003249B /* Callbacks+Aliases.swift in Sources */,
 				0611FE082B0AA4A5008A6CDE /* AboutScenePresenter.swift in Sources */,
 				0611FE0C2B0AA4A5008A6CDE /* ContactScenePresenter.swift in Sources */,
 				06C0AD652B1E451A0003249B /* LottieView.swift in Sources */,
 				06B186BD2B1E27EA005BEA60 /* ParallaxModifier.swift in Sources */,
 				0611FDCE2B0AA075008A6CDE /* ServicesInjector.swift in Sources */,
+				064530282B20B58700E7880D /* View+Navigation.swift in Sources */,
 				0611FE202B0AA4A5008A6CDE /* ExperiencesSceneInteractor.swift in Sources */,
 				0611FE0A2B0AA4A5008A6CDE /* AboutSceneInteractor.swift in Sources */,
 				0611FE2E2B0AA4A5008A6CDE /* MainScenePresenter.swift in Sources */,
@@ -980,7 +1028,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1014,7 +1062,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

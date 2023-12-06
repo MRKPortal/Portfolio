@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "full.png",
+      "filename" : "full_dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "full_dark.png",
+      "filename" : "full.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

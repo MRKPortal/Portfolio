@@ -4,7 +4,6 @@ import Foundation
 
 protocol MainScenePresenterProtocol {
     func didTapNext()
-    func didTapBack()
 }
 
 final class MainScenePresenter: MainScenePresenterProtocol {
@@ -15,19 +14,10 @@ final class MainScenePresenter: MainScenePresenterProtocol {
 	init(_ interactor: MainSceneInteractorProtocol, router: MainSceneRouterProtocol) {
 		self.interactor = interactor
 		self.router = router
-        print("initialization")
 	}
     
     func didTapNext() {
         router.nextScene()
-    }
-    
-    func didTapBack() {
-        router.previousScene()
-    }
-    
-    deinit {
-        print("deinit")
     }
 }
 

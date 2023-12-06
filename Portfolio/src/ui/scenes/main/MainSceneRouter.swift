@@ -4,7 +4,6 @@ import Foundation
 
 protocol MainSceneRouterProtocol {
     func nextScene()
-    func previousScene()
 }
 
 final class MainSceneRouter: MainSceneRouterProtocol {
@@ -19,15 +18,10 @@ final class MainSceneRouter: MainSceneRouterProtocol {
 
     func nextScene() {
         coordinator.pushView(
-            MainSceneFactory(
+            AboutSceneFactory(
                 coordinator: coordinator, 
                 injector: injector
             )
         )
     }
-    
-    func previousScene() {
-        coordinator.pop()
-    }
 }
-

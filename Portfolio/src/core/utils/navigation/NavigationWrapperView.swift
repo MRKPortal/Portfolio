@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+enum NavigationType: String, RawRepresentable {
+    case push, pop
+}
+
 struct NavigationWrapperView: View {
     
     @ObservedObject private var navCoordinator: NavigationCoordinator
     
-    @State var path: [Factory] = []
+    @State private var path: [Factory] = []
     
     init(coordinator: NavigationCoordinator) {
         self.navCoordinator = coordinator
@@ -22,10 +26,11 @@ struct NavigationWrapperView: View {
             Color.base2
                 .edgesIgnoringSafeArea(.all)
             ZStack {
-                ForEach(path) { scene in
+                ForEach(Array(path.enumerated()), id: \.offset) { offset, scene in
                     scene.build()
-                        .zIndex(CGFloat(path.count))
-                        .transition(.move(edge: .bottom))
+                        .zIndex(CGFloat(offset))
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                        .didBecameTop(path.isLast(scene))
                 }
             }
         }.onChange(of: navCoordinator.path) { path in

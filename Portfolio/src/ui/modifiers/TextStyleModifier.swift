@@ -10,19 +10,20 @@ import SwiftUI
 private struct TextStyleModifier: ViewModifier {
     
     let style: TextStyle
+    let tint: Color
 
     func body(content: Content) -> some View {
         content
             .font(style.font)
-            .foregroundColor(style.color)
+            .foregroundColor(tint)
             .lineSpacing(style.lineSpacing)
     }
 }
 
 extension View {
-    func applyTextStyle(_ style: TextStyle) -> some View {
+    func applyTextStyle(_ style: TextStyle, tint: Color = .base1) -> some View {
         self.modifier(
-            TextStyleModifier(style: style)
+            TextStyleModifier(style: style, tint: tint)
         )
     }
 }

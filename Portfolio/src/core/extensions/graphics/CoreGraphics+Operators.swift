@@ -16,3 +16,9 @@ extension CGPoint {
         .init(x: p.x * scale, y: p.y * scale)
     }
 }
+
+extension CGAffineTransform {
+    static func +(lhs: CGAffineTransform, rhs: CGAffineTransform) -> Self {
+        lhs.concatenating(rhs)
+    }
+}

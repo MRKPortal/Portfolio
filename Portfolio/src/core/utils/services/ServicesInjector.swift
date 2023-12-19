@@ -8,9 +8,9 @@
 import Foundation
 
 protocol ServicesInjectorProtocol {
-
+    var api: APIServiceProtocol { get }
 }
 
 final class ServicesInjector: ServicesInjectorProtocol {
-    
+    lazy var api: APIServiceProtocol = APIServiceLocalMock()
 }

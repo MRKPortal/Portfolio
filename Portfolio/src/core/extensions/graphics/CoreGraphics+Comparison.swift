@@ -11,21 +11,22 @@ extension CGSize {
     var isHeightBigger: Bool {
         abs(height) > abs(width)
     }
-
+    
     var isWidthBigger: Bool {
         abs(height) < abs(width)
     }
 }
 
 extension CGFloat {
-    func isEqual(value: Self, errorThreshold: CGFloat) -> Bool {
-        abs(self - value) < errorThreshold
+    func isEqual(value: Self?, errorThreshold: CGFloat = 0.0001) -> Bool {
+        guard let value else { return false }
+        return abs(self - value) < errorThreshold
     }
 }
 
 extension CGPoint {
-    func isEqual(value: Self, errorThreshold: CGFloat) -> Bool {
-        x.isEqual(value: value.x, errorThreshold: errorThreshold) &&
-        y.isEqual(value: value.y, errorThreshold: errorThreshold)
+    func isEqual(value: Self?, errorThreshold: CGFloat = 0.0001) -> Bool {
+        guard let value else { return false }
+        return x.isEqual(value: value.x, errorThreshold: errorThreshold) && y.isEqual(value: value.y, errorThreshold: errorThreshold)
     }
 }

@@ -26,7 +26,6 @@ struct HiveView<C: View>: View {
                     ZStack {
                         ForEach(Array(group.enumerated()), id: \.offset) { offset, pos in
                             cellView(distributor.index(group: radius, index: offset), pos)
-                                .frame(size: .s(side))
                                 .transformEffect(.t(pos * side))
                         }
                     }

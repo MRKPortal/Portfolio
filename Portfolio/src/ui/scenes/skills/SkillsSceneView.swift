@@ -6,6 +6,7 @@ struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
     
     @ObservedObject private var presenter: P
 
+    @State private var animateDetail: Bool = false
     @State private var selected: SkillEntity?
     @State private var start: CGPoint?
     
@@ -15,56 +16,63 @@ struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
     
     var body: some View {
         ZStack {
-            HiveView { index, pos in
-                let skill = presenter.skills[secured: index]
-                SkillCellView(skill)
-                    .opacity(pos.isEqual(value: start) ? 0 : 1)
-                    .onTapGesture {
-                        if skill == nil { return }
-                        selected = skill
-                        start = pos
-                    }
-            }
-            .gestureRouter(directions: [.right]) { _ in
-                presenter.didTapBack()
-            }
-
-            Color
-                .black
-                .opacity(selected == nil ? 0 : 0.3)
-                .animation(.easeIn, value: selected)
-                .onTapGesture {
-                    selected = nil
+            GeometryReader { reader in
+                HiveView { index, pos in
+                    let skill = presenter.skills[secured: index]
+                    SkillCellView(skill)
+                        .frame(size: .s(reader.size.width/2))
+                        .scaleEffect(2/3)
+                        .opacity(selected != nil && selected == skill ? 0 : 1)
+                        .onTapGesture {
+                            if skill == nil { return }
+                            selected = skill
+                            start = pos * (reader.size.width/3)
+                            print(pos * (reader.size.width/3))
+                            print(pos * (-reader.size.width/3))
+                        }
                 }
+                .gestureRouter(directions: [.right]) { _ in
+                    presenter.didTapBack()
+                }
+                
+                Color
+                    .black
+                    .ignoresSafeArea()
+                    .opacity(selected == nil ? 0 : 0.3)
+                    .animation(.easeIn, value: selected)
+                    .onTapGesture {
+                        selected = nil
+                    }
+                
+                if let selected, let start {
+                    GeometryReader { reader in
+                        SkillDetailView(skill: selected)
+                            .offset(y: animateDetail ? 0 : reader.size.height/2 - 32)
+                            .scaleEffect(animateDetail ? 1 : 2/3)
+                            .offset(y: animateDetail ? 0 : -reader.size.width/6)
+                            .offset(animateDetail ? .zero : start.toSize)
+                            .onAppear {
+                                withAnimation {
+                                    animateDetail.toggle()
+                                }
+                            }
+                            .onDisappear {
+                                withAnimation {
+                                    animateDetail.toggle()
+                                }
+                            }
+                            .onTapGesture {
+                                self.selected = nil
+                            }
+                    }
+                }
+            }
         }
     }
 }
 
 private extension SkillsSceneView {
-    
 
-    //    var detailView: some View {
-    //        GeometryReader { detail in
-    //            DetailedContentView()
-    //                .scaleEffect(animateDetail ? 1 : 2/3, anchor: .top)
-    //                .offset(calculateOffset(hiveSide: side, selected: selected, detailSize: detail.size))
-    //                .onTapGesture {
-    //                    withAnimation(.spring(duration: 0.25)) {
-    //                        self.animateDetail = false
-    //                    }
-    //                    withAnimation(.easeIn.delay(0.15)) {
-    //                        self.selected = nil
-    //                    }
-    //                }
-    //                .onAppear {
-    //                    withAnimation(.bouncy(extraBounce: 0.1)) {
-    //                        animateDetail.toggle()
-    //                    }
-    //                }
-    //        }
-    //        .zIndex(2)
-    //    }
-    
 //    func calculateOffset(hiveSide: CGFloat, selected: CGPoint, detailSize: CGSize) -> CGSize {
 //        if animateDetail {
 //            return .zero

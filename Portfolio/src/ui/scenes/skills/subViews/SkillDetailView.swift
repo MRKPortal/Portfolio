@@ -1,14 +1,16 @@
 //
-//  DetailedContentView.swift
+//  SkillDetailView.swift
 //  Portfolio
 //
-//  Created by Marc Flores on 8/12/23.
+//  Created by Marc Flores on 19/12/23.
 //
 
 import SwiftUI
 
-struct DetailedContentView: View {
+struct SkillDetailView: View {
     
+    let skill: SkillEntity
+
     @State private var entry: Bool = false
     @State private var dismiss: Bool = true
     

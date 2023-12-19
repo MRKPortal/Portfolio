@@ -16,21 +16,23 @@ struct SkillCellView: View {
     }
     
     var body: some View {
-        Group {
-            if let skill {
-                ZStack {
-                    Color.red
-                    Image(skill.icon)
-                        .resizable()
-                        .foregroundColor(.white)
-                        .scaledToFit()
-                        .padding(32)
+        GeometryReader { reader in
+            Group {
+                if let skill {
+                    ZStack {
+                        Color.red
+                        Image(skill.icon)
+                            .resizable()
+                            .foregroundColor(.white)
+                            .scaledToFit()
+                            .frame(size: .s(reader.size.width/2))
+                    }
+                    
+                } else {
+                    Color.black
                 }
-                
-            } else {
-                Color.black
             }
+            .clipShape(NgonShape(points: 6))
         }
-        .clipShape(NgonShape(points: 6))
     }
 }

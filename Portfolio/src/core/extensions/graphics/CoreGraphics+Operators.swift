@@ -17,6 +17,15 @@ extension CGPoint {
     }
 }
 
+extension CGSize {
+    static func *(lhs: CGSize, rhs: CGSize) -> Self {
+        .init(
+            width: lhs.width * rhs.width,
+            height: lhs.height * rhs.height
+        )
+    }
+}
+
 extension CGAffineTransform {
     static func +(lhs: CGAffineTransform, rhs: CGAffineTransform) -> Self {
         lhs.concatenating(rhs)

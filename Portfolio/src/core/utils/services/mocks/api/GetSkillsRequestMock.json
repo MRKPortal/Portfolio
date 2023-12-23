@@ -4,43 +4,43 @@
             "title": "VIPER",
             "icon": "viper",
             "description": "",
-            "color": "red6"
+            "color": "red2"
         },
         {
             "title": "VPN",
             "icon": "vpn",
             "description": "",
-            "color": "green7"
+            "color": "green2"
         },
         {
             "title": "API",
             "icon": "api",
             "description": "",
-            "color": "yellow7"
+            "color": "yellow5"
         },
         {
             "title": "TDD",
             "icon": "tdd",
             "description": "",
-            "color": "sky8"
+            "color": "sky5"
         },
         {
             "title": "UI",
             "icon": "ui",
             "description": "",
-            "color": "slate7"
+            "color": "slate5"
         },
         {
             "title": "SOLID",
             "icon": "solid",
             "description": "",
-            "color": "red5"
+            "color": "gray4"
         },
         {
             "title": "Web3",
             "icon": "web3",
             "description": "",
-            "color": "blue7"
+            "color": "blue5"
         },
         {
             "title": "KYC",

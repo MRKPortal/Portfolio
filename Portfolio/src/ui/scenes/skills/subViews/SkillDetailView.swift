@@ -43,16 +43,17 @@ struct SkillDetailView: View {
                     .padding(entry ? 32 : 0)
                     .background {
                         Color
-                            .black
+                            .base2
                             .cornerRadius(8)
                             .padding(1)
                             .background(
                                 Color
-                                    .white
+                                    .base1
                                     .cornerRadius(8)
                             )
-                            .opacity(entry ? 0.5 : 0)
+                            .opacity(entry ? 1: 0)
                     }
+                    .padding(32)
                     .offset(entry ? .zero : start.toSize)
                     .onAppear {
                         withAnimation {

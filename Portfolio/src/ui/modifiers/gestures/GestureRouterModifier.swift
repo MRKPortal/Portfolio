@@ -88,8 +88,8 @@ extension NavigationDirection {
     
     func calculateOffset(_ gesture: DragGesture.Value) -> CGSize {
         switch self {
-        case .down, .up: .s(0, gesture.translation.height)
-        case .left, .right: .s(gesture.translation.width, 0)
+        case .down, .up: .s(h: gesture.translation.height)
+        case .left, .right: .s(w: gesture.translation.width)
         }
     }
     
@@ -104,10 +104,10 @@ extension NavigationDirection {
     
     func finalOffset(_ screenSize: CGSize) -> CGSize {
         switch self {
-        case .down: .s(0, screenSize.height)
-        case .up: .s(0, -screenSize.height)
-        case .left: .s(-screenSize.width, 0)
-        case .right: .s(screenSize.width, 0)
+        case .down: .s(h: screenSize.height)
+        case .up: .s(h: -screenSize.height)
+        case .left: .s(w: -screenSize.width)
+        case .right: .s(w: screenSize.width)
         }
     }
 }

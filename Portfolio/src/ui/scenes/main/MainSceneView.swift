@@ -5,7 +5,7 @@ import UIKit
 
 struct MainSceneView<P: MainScenePresenterProtocol>: View {
     private let presenter: P
-
+    
     @State private var animate: Bool = false
     
     init(_ presenter: P) {
@@ -26,13 +26,24 @@ struct MainSceneView<P: MainScenePresenterProtocol>: View {
             }
             .padding(32)
             
-            VStack {
-                Spacer()
-                Lotties.dragUp
-                    .foregroundColor(.white)
-                    .frame(height: 64)
-                    .padding(.bottom, 16)
-            }   
+            if animate {
+                VStack {
+                    Spacer()
+                    Lotties.dragUp
+                        .foregroundColor(.white)
+                        .frame(height: 64)
+                        .padding(.bottom, 16)
+                        .rotationEffect(.degrees(180))
+                }
+                .transition(.push(from: .top))
+            }
+        }
+        .onAppear {
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                withAnimation {
+                    self.animate = true
+                }
+            }
         }
         .gestureRouter { _ in
             presenter.didSwipe()

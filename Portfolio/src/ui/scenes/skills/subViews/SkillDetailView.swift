@@ -7,26 +7,19 @@
 
 import SwiftUI
 
-
-extension CGRect {
-    var center: CGPoint {
-        .p(midX, midY)
-    }
-}
-
 struct SkillDetailView: View {
     @Binding var selection: SkillSelection?
     @State private var entry: Bool = false
     @State private var reference: CGPoint = .zero
-    
+
     var body: some View {
         GeometryReader { reader in
-            Color
-                .black
-                .ignoresSafeArea()
-                .opacity(entry ? 0.3 : 0)
-
             ZStack {
+                Color
+                    .black
+                    .ignoresSafeArea()
+                    .opacity(entry ? 0.3 : 0)
+
                 if let skill = selection?.skill, let start = selection?.start {
                     VStack(spacing: 32) {
                         SkillCellView(skill)
@@ -66,14 +59,9 @@ struct SkillDetailView: View {
                             entry.toggle()
                         }
                     }
-                    .onTapGesture {
-                        withAnimation(.easeInOut(duration: 0.25)) {
-                            entry = false
-                        }
-                    }
+                    .dragDown(completed: $entry)
                 }
             }
-            .frame(size: reader.size)
         }
     }
 }

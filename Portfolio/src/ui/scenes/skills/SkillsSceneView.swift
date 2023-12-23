@@ -13,7 +13,7 @@ struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
     
     @State private var animateDetail: Bool = false
     @State private var selected: SkillSelection?
-    
+
     init(_ presenter: P) {
         self.presenter = presenter
     }
@@ -37,8 +37,13 @@ struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
                         }
                 }
                 .allowsHitTesting(selected == nil)
-                .gestureRouter(directions: [.right]) { _ in
-                    presenter.didTapBack()
+                .gestureRouter(directions: [.right, .left]) { direction in
+                    switch direction {
+                    case .right:
+                        presenter.didTapBack()
+                    default:
+                        break
+                    }
                 }
             }
             

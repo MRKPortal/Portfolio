@@ -4,7 +4,6 @@ import Foundation
 
 protocol AboutScenePresenterProtocol {
     func didTapBack()
-    func didSwipeRight()
     func didSwipeLeft()
 }
 
@@ -24,10 +23,6 @@ final class AboutScenePresenter: AboutScenePresenterProtocol {
     
     func didSwipeLeft() {
         router.leftScene()
-    }
-    
-    func didSwipeRight() {
-        router.rightScene()
     }
 }
 

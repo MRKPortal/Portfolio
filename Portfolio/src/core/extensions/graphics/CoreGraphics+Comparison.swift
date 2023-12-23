@@ -9,11 +9,11 @@ import CoreGraphics
 
 extension CGSize {
     var isHeightBigger: Bool {
-        abs(height) > abs(width)
+        Swift.abs(height) > Swift.abs(width)
     }
     
     var isWidthBigger: Bool {
-        abs(height) < abs(width)
+        !isHeightBigger
     }
 }
 

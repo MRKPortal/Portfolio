@@ -21,7 +21,7 @@ private class MotionManager: ObservableObject {
                 return
             }
             withAnimation {
-                self.offset = .s(data.gravity.x, data.gravity.y)
+                self.offset = .s(w: data.gravity.x, h: data.gravity.y)
             }
         }
     }
@@ -47,6 +47,6 @@ private struct ParallaxModifier: ViewModifier {
 // A View wrapper to make the modifier easier to use
 extension View {
     func parallax(x: CGFloat = 0, y: CGFloat = 0) -> some View {
-        self.modifier(ParallaxModifier(.s(x,y)))
+        self.modifier(ParallaxModifier(.s(w: x,h: y)))
     }
 }

@@ -30,8 +30,9 @@ struct HiveView<C: View>: View {
                         }
                     }
                     .scaleEffect(enter ? 1 : 0.5)
-                    .opacity(enter ? 1 : 0)
                     .animation(animation.delay(delay), value: enter)
+                    .opacity(enter ? 1 : 0)
+                    .animation(.linear.delay(delay), value: enter)
                     .zIndex(1)
                 }
             }

@@ -3,72 +3,104 @@
 		{
             "title": "VIPER",
             "icon": "viper",
-            "description": ""
+            "description": "",
+            "color": "red6"
         },
         {
             "title": "VPN",
             "icon": "vpn",
-            "description": ""
+            "description": "",
+            "color": "green7"
         },
         {
             "title": "API",
             "icon": "api",
-            "description": ""
+            "description": "",
+            "color": "yellow7"
         },
         {
             "title": "TDD",
             "icon": "tdd",
-            "description": ""
+            "description": "",
+            "color": "sky8"
         },
         {
             "title": "UI",
             "icon": "ui",
-            "description": ""
+            "description": "",
+            "color": "slate7"
         },
         {
             "title": "SOLID",
             "icon": "solid",
-            "description": ""
-        },
-        {
-            "title": "KYC",
-            "icon": "kyc",
-            "description": ""
+            "description": "",
+            "color": "red5"
         },
         {
             "title": "Web3",
             "icon": "web3",
-            "description": ""
+            "description": "",
+            "color": "blue7"
+        },
+        {
+            "title": "KYC",
+            "icon": "kyc",
+            "description": "",
+            "color": "red5"
         },
         {
             "title": "Streaming",
             "icon": "viper",
-            "description": ""
+            "description": "",
+            "color": "red5"
         },
         {
             "title": "WebSockets",
             "icon": "viper",
-            "description": ""
+            "description": "",
+            "color": "red5"
         },
         {
             "title": "E-Commerce",
             "icon": "viper",
-            "description": ""
+            "description": "",
+            "color": "red5"
         },
         {
             "title": "Maps",
             "icon": "map",
-            "description": ""
+            "description": "",
+            "color": "red5"
         },
         {
             "title": "Reactive",
             "icon": "viper",
-            "description": ""
+            "description": "",
+            "color": "red5"
         },
         {
             "title": "Databases",
             "icon": "viper",
-            "description": ""
+            "description": "",
+            "color": "red5"
+        },
+        {
+            "title": "Maps2",
+            "icon": "map",
+            "description": "",
+            "color": "red5"
+        },
+        {
+            "title": "Reactive2",
+            "icon": "viper",
+            "description": "",
+            "color": "red5"
+        },
+        {
+            "title": "Databases2",
+            "icon": "viper",
+            "description": "",
+            "color": "red5"
         }
 	]
 }

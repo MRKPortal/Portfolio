@@ -5,7 +5,6 @@ import Foundation
 protocol AboutSceneRouterProtocol {
     func pop()
     func leftScene()
-    func rightScene()
 }
 
 final class AboutSceneRouter: AboutSceneRouterProtocol {
@@ -27,13 +26,6 @@ final class AboutSceneRouter: AboutSceneRouterProtocol {
         coordinator.pushView(
             factory: SkillsSceneFactory(coordinator: coordinator, injector: injector),
             direction: .left
-        )
-    }
-    
-    func rightScene() {
-        coordinator.pushView(
-            factory: PrinciplesSceneFactory(coordinator: coordinator, injector: injector),
-            direction: .right
         )
     }
 }

@@ -651,8 +651,8 @@
 			isa = PBXGroup;
 			children = (
 				062889372B31F45E00F89279 /* SkillCellView.swift */,
-				062889432B3214C800F89279 /* HiveView.swift */,
 				062889492B32214100F89279 /* SkillDetailView.swift */,
+				062889432B3214C800F89279 /* HiveView.swift */,
 			);
 			path = subViews;
 			sourceTree = "<group>";

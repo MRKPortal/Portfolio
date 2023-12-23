@@ -7,53 +7,73 @@
 
 import SwiftUI
 
-struct SkillDetailView: View {
-    
-    let skill: SkillEntity
 
+extension CGRect {
+    var center: CGPoint {
+        .p(midX, midY)
+    }
+}
+
+struct SkillDetailView: View {
+    @Binding var selection: SkillSelection?
     @State private var entry: Bool = false
-    @State private var dismiss: Bool = true
+    @State private var reference: CGPoint = .zero
     
     var body: some View {
         GeometryReader { reader in
-            VStack(spacing: 32) {
-                Color.red
-                    .clipShape(NgonShape(points: 6))
-                    .frame(size: .s(reader.size.width / 2))
-                VStack(spacing: 8) {
-                    Text("VIPER")
-                        .applyTextStyle(.h4, tint: .white)
-                    Text(ipsum)
-                        .applyTextStyle(.body, tint: .white)
-                }
-                .opacity(entry ? 1 : 0)
-                .scaleEffect(entry ? 1 : 0.8)
-                .animation(.spring.delay(0.25), value: entry)
-            }
-            .padding(32)
-            .background {
-                Color
-                    .black
-                    .cornerRadius(8)
-                    .padding(1)
-                    .background(
+            Color
+                .black
+                .ignoresSafeArea()
+                .opacity(entry ? 0.3 : 0)
+
+            ZStack {
+                if let skill = selection?.skill, let start = selection?.start {
+                    VStack(spacing: 32) {
+                        SkillCellView(skill)
+                            .clipShape(NgonShape(points: 6))
+                            .frame(size: .s(reader.size.width/2))
+                            .scaleEffect(entry ? 1 : 2/3)
+                        if entry {
+                            VStack(spacing: 8) {
+                                Text(skill.title)
+                                    .applyTextStyle(.h4, tint: .white)
+                                Text(ipsum)
+                                    .applyTextStyle(.body, tint: .white)
+                            }
+                            .opacity(entry ? 1 : 0)
+                            .scaleEffect(entry ? 1 : 0.8)
+                            .onDisappear {
+                                selection = nil
+                            }
+                        }
+                    }
+                    .padding(entry ? 32 : 0)
+                    .background {
                         Color
-                            .white
+                            .black
                             .cornerRadius(8)
-                    )
-                    .opacity(entry ? 1 : 0)
-                    .animation(.linear.delay(0.25), value: entry)
-                    .scaleEffect(entry ? 1 : 0.8)
-                    .animation(.bouncy(duration: 0.5, extraBounce: 0.5).delay(0.25), value: entry)
-                    .opacity(dismiss ? 0 : 1)
-                    .animation(.linear(duration: 0.1), value: dismiss)
+                            .padding(1)
+                            .background(
+                                Color
+                                    .white
+                                    .cornerRadius(8)
+                            )
+                            .opacity(entry ? 0.5 : 0)
+                    }
+                    .offset(entry ? .zero : start.toSize)
+                    .onAppear {
+                        withAnimation {
+                            entry.toggle()
+                        }
+                    }
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            entry = false
+                        }
+                    }
+                }
             }
-        }
-        .onAppear {
-            entry.toggle()
-        }
-        .onDisappear {
-            dismiss.toggle()
+            .frame(size: reader.size)
         }
     }
 }

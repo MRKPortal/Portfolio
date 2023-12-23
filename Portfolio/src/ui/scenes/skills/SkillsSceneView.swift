@@ -2,13 +2,17 @@
 
 import SwiftUI
 
+struct SkillSelection: IdentifiableEquatable {
+    let start: CGPoint
+    let skill: SkillEntity
+}
+
 struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
     
     @ObservedObject private var presenter: P
-
+    
     @State private var animateDetail: Bool = false
-    @State private var selected: SkillEntity?
-    @State private var start: CGPoint?
+    @State private var selected: SkillSelection?
     
     init(_ presenter: P) {
         self.presenter = presenter
@@ -22,65 +26,23 @@ struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
                     SkillCellView(skill)
                         .frame(size: .s(reader.size.width/2))
                         .scaleEffect(2/3)
-                        .opacity(selected != nil && selected == skill ? 0 : 1)
+                        .opacity(selected != nil && selected?.skill == skill ? 0 : 1)
                         .onTapGesture {
-                            if skill == nil { return }
-                            selected = skill
-                            start = pos * (reader.size.width/3)
-                            print(pos * (reader.size.width/3))
-                            print(pos * (-reader.size.width/3))
+                            if let skill {
+                                selected = SkillSelection(
+                                    start: pos * (reader.size.width/3),
+                                    skill: skill
+                                )
+                            }
                         }
                 }
+                .allowsHitTesting(selected == nil)
                 .gestureRouter(directions: [.right]) { _ in
                     presenter.didTapBack()
                 }
-                
-                Color
-                    .black
-                    .ignoresSafeArea()
-                    .opacity(selected == nil ? 0 : 0.3)
-                    .animation(.easeIn, value: selected)
-                    .onTapGesture {
-                        selected = nil
-                    }
-                
-                if let selected, let start {
-                    GeometryReader { reader in
-                        SkillDetailView(skill: selected)
-                            .offset(y: animateDetail ? 0 : reader.size.height/2 - 32)
-                            .scaleEffect(animateDetail ? 1 : 2/3)
-                            .offset(y: animateDetail ? 0 : -reader.size.width/6)
-                            .offset(animateDetail ? .zero : start.toSize)
-                            .onAppear {
-                                withAnimation {
-                                    animateDetail.toggle()
-                                }
-                            }
-                            .onDisappear {
-                                withAnimation {
-                                    animateDetail.toggle()
-                                }
-                            }
-                            .onTapGesture {
-                                self.selected = nil
-                            }
-                    }
-                }
             }
+            
+            SkillDetailView(selection: $selected)
         }
     }
-}
-
-private extension SkillsSceneView {
-
-//    func calculateOffset(hiveSide: CGFloat, selected: CGPoint, detailSize: CGSize) -> CGSize {
-//        if animateDetail {
-//            return .zero
-//        } else {
-//            return CGSize(
-//                width: selected.x * hiveSide,
-//                height: (detailSize.height - hiveSide)/2 - (64/3) + (selected.y * hiveSide)
-//            )
-//        }
-//    }
 }

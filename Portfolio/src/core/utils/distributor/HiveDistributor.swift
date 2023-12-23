@@ -12,7 +12,6 @@ public class HiveDistributor: DistributorProtocol {
     public var positionGroups: [DistributorPosition] = [[.zero]]
     
     public init(_ radius: Int, horizontalLimit: CGFloat? = nil, verticalLimit: CGFloat? = nil) {
-        print("hive calculation")
         calculatePositions(
             radius: radius,
             horizontalLimit: horizontalLimit,

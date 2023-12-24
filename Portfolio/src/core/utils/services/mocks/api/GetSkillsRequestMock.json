@@ -87,7 +87,7 @@
         {
             "title": "OCR",
             "icon": "ocr",
-            "description": "When perform KYC validations a great tool is to be able to parse your costumers documents by just taking a picture.\n\nWith that motivation in mind we are familiar with several OCR libraries.",
+            "description": "When perform KYC validations a great tool is to be able to parse your costumers documents by just taking a picture.\n\nWith that motivation in mind we got familiar with several OCR libraries like Google Vision.",
             "color": "zinc5"
         },
         {

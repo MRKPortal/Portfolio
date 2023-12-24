@@ -23,7 +23,6 @@ struct SkillDetailView: View {
                 if let skill = selection?.skill, let start = selection?.start {
                     VStack(spacing: 16) {
                         SkillCellView(skill)
-                            .clipShape(NgonShape(points: 6))
                             .frame(size: .s(reader.size.width/2))
                             .scaleEffect(entry ? 1 : 2/3)
                         if entry {
@@ -42,24 +41,10 @@ struct SkillDetailView: View {
                     }
                     .padding(entry ? 32 : 0)
                     .background {
-                        ZStack {
-                            TimelineView(.animation) { context in
-                                let degree = (context.date.timeIntervalSince1970 * 200)
-                                    .truncatingRemainder(dividingBy: 360)
-                                
-                                AngularGradient(
-                                    colors: borderColors,
-                                    center: .center,
-                                    angle: .degrees(degree)
-                                )
-                                .cornerRadius(8)
-                            }
-                            
-                            Color
-                                .base2
-                                .cornerRadius(8)
-                                .padding(3)
-                        }
+                        AnimatedBorderView(
+                            colorName: skill.color,
+                            shape: RoundedRectangle(cornerRadius: 6)
+                        )
                         .opacity(entry ? 1: 0)
                     }
                     .padding(16)
@@ -72,25 +57,6 @@ struct SkillDetailView: View {
                     .dragDown(completed: $entry)
                 }
             }
-        }
-    }
-}
-
-private extension SkillDetailView {
-    var background: Color {
-        if let color = selection?.skill.color {
-            return Color(color)
-        } else {
-            return .base2
-        }
-    }
-    var borderColors: [Color] {
-        if let skill = selection?.skill {
-            return [
-                Color(skill.color), .clear, .clear, Color(skill.color)
-            ]
-        } else {
-            return [.gray3, .clear, .clear, .gray3]
         }
     }
 }

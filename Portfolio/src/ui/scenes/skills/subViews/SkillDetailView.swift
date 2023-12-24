@@ -11,7 +11,7 @@ struct SkillDetailView: View {
     @Binding var selection: SkillSelection?
     @State private var entry: Bool = false
     @State private var reference: CGPoint = .zero
-
+    
     var body: some View {
         GeometryReader { reader in
             ZStack {
@@ -19,9 +19,9 @@ struct SkillDetailView: View {
                     .black
                     .ignoresSafeArea()
                     .opacity(entry ? 0.3 : 0)
-
+                
                 if let skill = selection?.skill, let start = selection?.start {
-                    VStack(spacing: 32) {
+                    VStack(spacing: 16) {
                         SkillCellView(skill)
                             .clipShape(NgonShape(points: 6))
                             .frame(size: .s(reader.size.width/2))
@@ -29,9 +29,9 @@ struct SkillDetailView: View {
                         if entry {
                             VStack(spacing: 8) {
                                 Text(skill.title)
-                                    .applyTextStyle(.h4, tint: .white)
-                                Text(ipsum)
-                                    .applyTextStyle(.body, tint: .white)
+                                    .applyTextStyle(.h4, tint: .base1)
+                                Text(skill.description)
+                                    .applyTextStyle(.body, tint: .base1)
                             }
                             .opacity(entry ? 1 : 0)
                             .scaleEffect(entry ? 1 : 0.8)
@@ -42,16 +42,23 @@ struct SkillDetailView: View {
                     }
                     .padding(entry ? 32 : 0)
                     .background {
-                        Color
-                            .base2
-                            .cornerRadius(8)
-                            .padding(1)
-                            .background(
-                                Color
-                                    .base1
-                                    .cornerRadius(8)
-                            )
-                            .opacity(entry ? 1: 0)
+                        ZStack {
+                            TimelineView(.animation) { context in
+                                let degree = (context.date.timeIntervalSince1970 * 200)
+                                    .truncatingRemainder(dividingBy: 360)
+                                
+                                AngularGradient(
+                                    colors: borderColors,
+                                    center: .center,
+                                    angle: .degrees(degree)
+                                )
+                            }
+                            
+                            Color
+                                .base2
+                                .padding(3)
+                        }
+                        .opacity(entry ? 1: 0)
                     }
                     .padding(32)
                     .offset(entry ? .zero : start.toSize)
@@ -67,7 +74,21 @@ struct SkillDetailView: View {
     }
 }
 
-
-let ipsum = """
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-"""
+private extension SkillDetailView {
+    var background: Color {
+        if let color = selection?.skill.color {
+            return Color(color)
+        } else {
+            return .base2
+        }
+    }
+    var borderColors: [Color] {
+        if let skill = selection?.skill {
+            return [
+                Color(skill.color), .clear, .clear, Color(skill.color)
+            ]
+        } else {
+            return [.gray3, .clear, .clear, .gray3]
+        }
+    }
+}

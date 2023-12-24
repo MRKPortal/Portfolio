@@ -2,11 +2,11 @@
 
 import Foundation
 
-protocol AboutSceneInteractorProtocol {
+protocol ClientsSceneInteractorProtocol {
 
 }
 
-final class AboutSceneInteractor: AboutSceneInteractorProtocol {
+final class ClientsSceneInteractor: ClientsSceneInteractorProtocol {
 
 	init(_ injector: ServicesInjectorProtocol) {
 

@@ -2,11 +2,7 @@
 
 import Foundation
 
-protocol PrinciplesSceneRouterProtocol {
-    func previousScene()
-}
-
-final class PrinciplesSceneRouter: PrinciplesSceneRouterProtocol {
+final class ClientsSceneRouter: GenericRouterProtocol {
 
     private let injector: ServicesInjectorProtocol
     private let coordinator: NavigationCoordinator
@@ -15,9 +11,12 @@ final class PrinciplesSceneRouter: PrinciplesSceneRouterProtocol {
         self.injector = injector
         self.coordinator = coordinator
     }
-
-    func previousScene() {
+    
+    func pop() {
         coordinator.pop()
     }
+    
+    func displayNext() {
+        
+    }
 }
-

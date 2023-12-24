@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct AboutSceneView<P: AboutScenePresenterProtocol>: View {
+struct AboutSceneView<P: GenericScenePresenterProtocol>: View {
 
     private let presenter: P
 
@@ -19,9 +19,9 @@ struct AboutSceneView<P: AboutScenePresenterProtocol>: View {
         .gestureRouter(directions: [.left, .down]) { direction in
             switch direction {
             case .down:
-                presenter.didTapBack()
+                presenter.pop()
             default:
-                presenter.didSwipeLeft()
+                presenter.displayNext()
             }
         }
     }

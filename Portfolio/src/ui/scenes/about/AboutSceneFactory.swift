@@ -4,8 +4,7 @@ import SwiftUI
 
 final class AboutSceneFactory: Factory {
     private lazy var router = AboutSceneRouter(injector, coordinator: coordinator)
-    private lazy var interactor = AboutSceneInteractor(injector)
-    private lazy var presenter = AboutScenePresenter(interactor, router: router)
+    private lazy var presenter = GenericScenePresenter(router)
     
     override func build() -> AnyView {
         AnyView(AboutSceneView(presenter))

@@ -3,7 +3,7 @@
 import SwiftUI
 import UIKit
 
-struct MainSceneView<P: MainScenePresenterProtocol>: View {
+struct MainSceneView<P: GenericScenePresenterProtocol>: View {
     private let presenter: P
     
     @State private var animate: Bool = false
@@ -46,7 +46,7 @@ struct MainSceneView<P: MainScenePresenterProtocol>: View {
             }
         }
         .gestureRouter { _ in
-            presenter.didSwipe()
+            presenter.displayNext()
         }
     }
 }

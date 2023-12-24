@@ -2,32 +2,22 @@
 
 import Foundation
 
-protocol SkillsScenePresenterProtocol: ObservableObject {
+protocol SkillsScenePresenterProtocol: GenericScenePresenterProtocol, ObservableObject {
     var skills: [SkillEntity] { get }
-//    var distributor: DistributorProtocol { get }
-
-    func didTapBack()
 }
 
 final class SkillsScenePresenter: SkillsScenePresenterProtocol {
 
 	private let interactor: SkillsSceneInteractorProtocol
-	private let router: SkillsSceneRouterProtocol
+	private let router: GenericRouterProtocol
 
     @Published var skills: [SkillEntity] = []
     
-//    let distributor: DistributorProtocol
-    
-	init(_ interactor: SkillsSceneInteractorProtocol, router: SkillsSceneRouterProtocol) {
+	init(_ interactor: SkillsSceneInteractorProtocol, router: GenericRouterProtocol) {
 		self.interactor = interactor
 		self.router = router
-//        self.distributor = HiveDistributor(5, horizontalLimit: 2)
         fetchSkills()
 	}
-
-    func didTapBack() {
-        router.pop()
-    }
 
     func fetchSkills() {
         Task { @MainActor in
@@ -37,6 +27,14 @@ final class SkillsScenePresenter: SkillsScenePresenterProtocol {
 
             }
         }
+    }
+    
+    func pop() {
+        router.pop()
+    }
+    
+    func displayNext() {
+        router.displayNext()
     }
 }
 

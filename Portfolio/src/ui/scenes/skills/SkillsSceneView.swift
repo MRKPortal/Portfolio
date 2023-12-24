@@ -8,7 +8,9 @@ struct SkillSelection: IdentifiableEquatable {
 }
 
 struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
-    
+
+    private let generator = UIImpactFeedbackGenerator(style: .light)
+
     @ObservedObject private var presenter: P
     
     @State private var animateDetail: Bool = false
@@ -29,6 +31,7 @@ struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
                         .opacity(selected != nil && selected?.skill == skill ? 0 : 1)
                         .onTapGesture {
                             if let skill {
+                                generator.impactOccurred()
                                 selected = SkillSelection(
                                     start: pos * (reader.size.width/3),
                                     skill: skill

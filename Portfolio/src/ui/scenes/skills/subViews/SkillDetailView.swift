@@ -52,15 +52,17 @@ struct SkillDetailView: View {
                                     center: .center,
                                     angle: .degrees(degree)
                                 )
+                                .cornerRadius(8)
                             }
                             
                             Color
                                 .base2
+                                .cornerRadius(8)
                                 .padding(3)
                         }
                         .opacity(entry ? 1: 0)
                     }
-                    .padding(32)
+                    .padding(16)
                     .offset(entry ? .zero : start.toSize)
                     .onAppear {
                         withAnimation {

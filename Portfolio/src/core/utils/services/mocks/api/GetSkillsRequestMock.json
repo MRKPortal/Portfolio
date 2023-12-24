@@ -3,72 +3,104 @@
 		{
             "title": "VIPER",
             "icon": "viper",
-            "description": ""
+            "description": "The very cornerstone of our lifestyle, we believe that no project is too little not to be implemented following VIPER architecture.\n\nWe are also proficient with MVVM.",
+            "color": "red2"
         },
         {
             "title": "VPN",
             "icon": "vpn",
-            "description": ""
-        },
-        {
-            "title": "API",
-            "icon": "api",
-            "description": ""
-        },
-        {
-            "title": "TDD",
-            "icon": "tdd",
-            "description": ""
-        },
-        {
-            "title": "UI",
-            "icon": "ui",
-            "description": ""
+            "description": "Nowadays, it is vital to protect both our connections and our data.\n\nThus, we have learned the ways of the VPN and several of its protocols like OpenVPN or WireGuard.",
+            "color": "green2"
         },
         {
             "title": "SOLID",
             "icon": "solid",
-            "description": ""
+            "description": "Far beyond the acronym, we hold the SOLID principles as our dogma.\n\nWe split our code into responsibilities and drive them to a single testable and scalable functionality, making it easier to expand our projects in the future.",
+            "color": "gray4"
         },
         {
-            "title": "KYC",
-            "icon": "kyc",
-            "description": ""
+            "title": "TDD",
+            "icon": "tdd",
+            "description": "Because we use VIPER architecture and we split our functionalities through several Services and Interactors, we follow a Test Driven Development to make sure before implementing any component we have clear the successful and failing cases.",
+            "color": "sky5"
+        },
+        {
+            "title": "UI",
+            "icon": "ui",
+            "description": "From the Objective-C dark times, through the UIKit and Autolayout’s gray era, to SwiftUI's golden moment.\n\nWe feel proud knowing we can implement almost every possible UI style.",
+            "color": "slate5"
+        },
+        {
+            "title": "API",
+            "icon": "api",
+            "description": "There is no way to expand your project across the net without a proper API. We love to implement our API Client services with the help of Alamofire.\nWe greatly appreciate it when we are provided with a fully documented API Contract.",
+            "color": "yellow5"
         },
         {
             "title": "Web3",
             "icon": "web3",
-            "description": ""
+            "description": "The future has arrived, Web3 is here!\nWe have experience with Web3 and understand how valuable the use of Wallets and Encryption is for incoming technology.",
+            "color": "blue5"
+        },
+        {
+            "title": "KYC",
+            "icon": "kyc",
+            "description": "We are experienced in KYC methodologies and technologies.\n\nWe feel very proud to had the chance to provide a secured document validation by the use of NFC.",
+            "color": "orange2"
         },
         {
             "title": "Streaming",
-            "icon": "viper",
-            "description": ""
-        },
-        {
-            "title": "WebSockets",
-            "icon": "viper",
-            "description": ""
+            "icon": "live",
+            "description": "YouTube or Instagram will not be the only ones providing Live Streaming services.\n\nWe have experience with Live Streaming services like Agora to broadcast quality video to everyone in real time.",
+            "color": "red1"
         },
         {
             "title": "E-Commerce",
-            "icon": "viper",
-            "description": ""
+            "icon": "commerce",
+            "description": "When creating products that deal on a B2C, it is very important to work with payment platforms and methods, like Stripe and Apple Pay, and connect them with services like Shopify SDK.",
+            "color": "yellow4"
+        },
+        {
+            "title": "Databases",
+            "icon": "databases",
+            "description": "We are also familiar with the experience of persisting data, Core Data, Realm, and now the brand new Swift Data combined with KeyChain for an extra layer of security for sensitive data.",
+            "color": "green4"
         },
         {
             "title": "Maps",
             "icon": "map",
-            "description": ""
+            "description": "Although it was brief, we also had the opportunity to work with maps and triangulation functions to provide efficient ways to calculate and fetch the best and closest events to a specific location.",
+            "color": "orange0"
         },
         {
             "title": "Reactive",
-            "icon": "viper",
-            "description": ""
+            "icon": "react",
+            "description": "We are very familiar with reactive development and already have experience with RxSwift and took the big jump to native with Combine.",
+            "color": "blue5"
         },
         {
-            "title": "Databases",
-            "icon": "viper",
-            "description": ""
+            "title": "SwiftGen",
+            "icon": "swiftgen",
+            "description": "When dealing with a lot of resources we like to rely on SwiftGen to parse all of them.\n\nSometimes we also implement our own Stencil Templates to adjust the output to our needs.",
+            "color": "sky0"
+        },
+        {
+            "title": "OCR",
+            "icon": "ocr",
+            "description": "When perform KYC validations a great tool is to be able to parse your costumers documents by just taking a picture.\n\nWith that motivation in mind we got familiar with several OCR libraries like Google Vision.",
+            "color": "zinc5"
+        },
+        {
+            "title": "Metal",
+            "icon": "metal",
+            "description": "When taking UI effects to the next level is vital to understand how to develop for the GPU, that is why we learned how to program our own shaders with Metal.",
+            "color": "slate2"
+        },
+        {
+            "title": "WebSockets",
+            "icon": "socket",
+            "description": "There are SDKs like FireBase or Stream that provide an already active server for WebSockets connection.\n\nBut when pointing to a custom stateful server, we can create our own WebSockets as well as maintain a proper connection and evaluate its states.",
+            "color": "green1"
         }
 	]
 }

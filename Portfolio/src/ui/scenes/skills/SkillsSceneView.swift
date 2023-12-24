@@ -2,90 +2,55 @@
 
 import SwiftUI
 
+struct SkillSelection: IdentifiableEquatable {
+    let start: CGPoint
+    let skill: SkillEntity
+}
+
 struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
-    
+
+    private let generator = UIImpactFeedbackGenerator(style: .light)
+
     @ObservedObject private var presenter: P
     
-    @State private var animate = false
-    @State private var selected: CGPoint?
     @State private var animateDetail: Bool = false
-    
+    @State private var selected: SkillSelection?
+
     init(_ presenter: P) {
         self.presenter = presenter
     }
     
     var body: some View {
-        GeometryReader { reader in
-            let side = reader.size.width / 3
-            ZStack {
-                Color
-                    .base2
-
-                ForEach(Array(presenter.distributor.positionGroups.enumerated()), id: \.offset) { radius, group in
-                    ForEach(Array(group.enumerated()), id: \.offset) { offset, pos in
-                        let delay = CGFloat(radius) * 0.15
-                        let index = presenter.distributor.index(group: radius, index: offset)
-                        let skill = presenter.skills[secured: index]
-                        SkillCellView(skill)
-                            .frame(size: .s(side))
-                            .transformEffect(.t(pos.x * side, y: pos.y * side))
-                            .scaleEffect(animate ? 1 : 0.5)
-                            .opacity(animate ? 1 : 0)
-                            .animation(.bouncy(duration: 1, extraBounce: 0.5).delay(delay), value: animate)
-                            .zIndex(1)
-                            .onTapGesture {
-                                if skill == nil {
-                                    return
-                                }
-                                selected = pos
+        ZStack {
+            GeometryReader { reader in
+                HiveView { index, pos in
+                    let skill = presenter.skills[secured: index]
+                    SkillCellView(skill)
+                        .frame(size: .s(reader.size.width/2))
+                        .scaleEffect(2/3)
+                        .opacity(selected != nil && selected?.skill == skill ? 0 : 1)
+                        .onTapGesture {
+                            if let skill {
+                                generator.impactOccurred()
+                                selected = SkillSelection(
+                                    start: pos * (reader.size.width/3),
+                                    skill: skill
+                                )
                             }
-                            .opacity(!pos.isEqual(value: selected) ? 1 : 0)
+                        }
+                }
+                .allowsHitTesting(selected == nil)
+                .gestureRouter(directions: [.right, .left]) { direction in
+                    switch direction {
+                    case .right:
+                        presenter.pop()
+                    default:
+                        presenter.displayNext()
                     }
                 }
-                
-                if let selected {
-                    GeometryReader { detail in
-                        DetailedContentView()
-                            .scaleEffect(animateDetail ? 1 : 2/3, anchor: .top)
-                            .offset(calculateOffset(hiveSide: side, selected: selected, detailSize: detail.size))
-                            .onTapGesture {
-                                withAnimation(.spring(duration: 0.25)) {
-                                    self.animateDetail = false
-                                }
-                                withAnimation(.easeIn.delay(0.15)) {
-                                    self.selected = nil
-                                }
-                            }
-                            .onAppear {
-                                withAnimation(.bouncy(extraBounce: 0.1)) {
-                                    animateDetail.toggle()
-                                }
-                            }
-                    }
-                    .zIndex(2)
-                }
             }
-        }
-        .gestureRouter(directions: [.right]) { _ in
-            presenter.didTapBack()
-        }
-        .onChange(of: presenter.skills) { values in
-            if !values.isEmpty {
-                animate.toggle()
-            }
-        }
-    }
-}
-
-private extension SkillsSceneView {
-    func calculateOffset(hiveSide: CGFloat, selected: CGPoint, detailSize: CGSize) -> CGSize {
-        if animateDetail {
-            return .zero
-        } else {
-            return CGSize(
-                width: selected.x * hiveSide,
-                height: (detailSize.height - hiveSide)/2 - (64/3) + (selected.y * hiveSide)
-            )
+            
+            SkillDetailView(selection: $selected)
         }
     }
 }

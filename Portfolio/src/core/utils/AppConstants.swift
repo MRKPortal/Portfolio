@@ -9,6 +9,12 @@ import Foundation
 
 enum C {
     enum Urls {
-        static let baseUrl: String = "http://api.mrkportal.com"
+        static let baseURL: String = "http://api.mrkportal.com"
+    }
+    
+    enum Contact {
+        static let contactMail: String = "projects@mrkportal.com"
+        static let githubURL: String = "https://github.com/mrktrace/portfolio"
+        static let linkedinURL: String = "https://www.linkedin.com/in/marc-flores-87216291/"
     }
 }

@@ -2,11 +2,7 @@
 
 import Foundation
 
-protocol SkillsSceneRouterProtocol {
-    func pop()
-}
-
-final class SkillsSceneRouter: SkillsSceneRouterProtocol {
+final class SkillsSceneRouter: GenericRouterProtocol {
 
     private let injector: ServicesInjectorProtocol
     private let coordinator: NavigationCoordinator
@@ -18,6 +14,13 @@ final class SkillsSceneRouter: SkillsSceneRouterProtocol {
 
     func pop() {
         coordinator.pop()
+    }
+    
+    func displayNext() {
+        coordinator.pushView(
+            factory: ClientsSceneFactory(coordinator: coordinator, injector: injector),                 
+            direction: .left
+        )
     }
 }
 

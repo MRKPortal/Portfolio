@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct NgonShape: Shape {
-    
+
     let points: Int
     
     func path(in rect: CGRect) -> Path {
+        print("shape")
         let radius = min(rect.size.width, rect.size.height)/2
         let center = CGPoint(x: rect.midX, y: rect.midY)
-
         let floatTotal = CGFloat(points)
         var path = Path()
         (0..<points).forEach { point in

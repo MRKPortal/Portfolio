@@ -2,13 +2,7 @@
 
 import Foundation
 
-protocol AboutSceneRouterProtocol {
-    func pop()
-    func leftScene()
-    func rightScene()
-}
-
-final class AboutSceneRouter: AboutSceneRouterProtocol {
+final class AboutSceneRouter: GenericRouterProtocol {
 
     private let injector: ServicesInjectorProtocol
     private let coordinator: NavigationCoordinator
@@ -21,19 +15,11 @@ final class AboutSceneRouter: AboutSceneRouterProtocol {
     func pop() {
         coordinator.pop()
     }
-
     
-    func leftScene() {
+    func displayNext() {
         coordinator.pushView(
             factory: SkillsSceneFactory(coordinator: coordinator, injector: injector),
             direction: .left
-        )
-    }
-    
-    func rightScene() {
-        coordinator.pushView(
-            factory: PrinciplesSceneFactory(coordinator: coordinator, injector: injector),
-            direction: .right
         )
     }
 }

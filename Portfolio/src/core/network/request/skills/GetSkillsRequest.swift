@@ -8,5 +8,5 @@
 import Foundation
 
 struct GetSkillsRequest: BaseRequest {
-    let path: String = C.Urls.baseUrl + "/skills"
+    let path: String = C.Urls.baseURL + "/skills"
 }

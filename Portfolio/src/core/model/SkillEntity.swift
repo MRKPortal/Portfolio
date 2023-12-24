@@ -11,6 +11,7 @@ struct SkillEntity: Codable {
     let title: String
     let icon: String
     let description: String
+    let color: String
 }
 
 extension SkillEntity: IdentifiableEquatable {

@@ -7,8 +7,19 @@
 */
 
 /* */
-
 "app_name" = "MRKPortal OÜ";
- 
+
 /* */
 "app_moto" = "A gate to quality";
+
+/* */
+"contact_mail_description" = "And that's all folks!\nIf you are interested in our experience don't hesitate to mail us";
+
+/* */
+"contact_git_description" = "If you would like to see a little about our code before taking any decision, you can check the very code of this App in our Github";
+
+/* */
+"contact_linkedin_description" = "Get a little about more information about us and our team on LinkedIN";
+
+/* */
+"contact_social_description" = "Follow us on Instagram and Threads to get the last updates on our cool projects!";

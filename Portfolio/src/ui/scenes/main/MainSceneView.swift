@@ -23,6 +23,7 @@ struct MainSceneView<P: GenericScenePresenterProtocol>: View {
                     .scaledToFit()
                 Text(Ls.appMoto)
                     .applyTextStyle(.h4)
+                    .multilineTextAlignment(.center)
             }
             .padding(32)
             

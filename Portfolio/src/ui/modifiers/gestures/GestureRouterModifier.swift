@@ -57,6 +57,7 @@ private struct GestureRouterModifier: ViewModifier {
                 )
         }
         .onChange(of: navConfig.isTop) { value in
+            print("update value", value)
             guard value else { return }
             //RESET STATE
             withAnimation(.bouncy) {
@@ -64,6 +65,7 @@ private struct GestureRouterModifier: ViewModifier {
                 opacity = 1
             }
         }
+        .allowsHitTesting(opacity == 1)
     }
 }
 

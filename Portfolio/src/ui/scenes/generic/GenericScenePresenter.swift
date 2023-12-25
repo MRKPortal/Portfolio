@@ -12,6 +12,11 @@ protocol GenericScenePresenterProtocol {
     func pop()
 }
 
+extension GenericScenePresenterProtocol {
+    func displayNext() { }
+    func pop() { }
+}
+
 final class GenericScenePresenter: GenericScenePresenterProtocol {
     
     private let router: GenericRouterProtocol

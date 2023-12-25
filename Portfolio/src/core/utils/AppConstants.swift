@@ -13,8 +13,9 @@ enum C {
     }
     
     enum Contact {
-        static let contactMail: String = "projects@mrkportal.com"
-        static let githubURL: String = "https://github.com/mrktrace/portfolio"
-        static let linkedinURL: String = "https://www.linkedin.com/in/marc-flores-87216291/"
+        static let contactMail: String = "mailto:projects@mrkportal.com"
+        static let gitHubURL: String = "https://github.com/MRKPortal/Portfolio"
+        static let linkedInURL: String = "https://www.linkedin.com/company/mrkportal/"
+        static let socialURL: String = "https://www.instagram.com/mrkportal/"
     }
 }

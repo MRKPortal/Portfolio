@@ -14,6 +14,14 @@ public enum Ls {
   public static let appMoto = Ls.tr("Localizables", "app_moto", fallback: "A gate to quality")
   /// 
   public static let appName = Ls.tr("Localizables", "app_name", fallback: "MRKPortal OÜ")
+  /// 
+  public static let contactGitDescription = Ls.tr("Localizables", "contact_git_description", fallback: "If you would like to see a little about our code before taking any decision, you can check the very code of this App in our Github")
+  /// 
+  public static let contactLinkedinDescription = Ls.tr("Localizables", "contact_linkedin_description", fallback: "Get a little about more information about us and our team on LinkedIN")
+  /// 
+  public static let contactMailDescription = Ls.tr("Localizables", "contact_mail_description", fallback: "And that's all folks!\nIf you are interested in our experience don't hesitate to mail us")
+  /// 
+  public static let contactSocialDescription = Ls.tr("Localizables", "contact_social_description", fallback: "Follow us on Instagram and Threads to get the last updates on our cool projects!")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

@@ -2,11 +2,7 @@
 
 import Foundation
 
-protocol ContactSceneRouterProtocol {
-
-}
-
-final class ContactSceneRouter: ContactSceneRouterProtocol {
+final class ContactSceneRouter: GenericRouterProtocol {
 
     private let injector: ServicesInjectorProtocol
     private let coordinator: NavigationCoordinator
@@ -16,5 +12,9 @@ final class ContactSceneRouter: ContactSceneRouterProtocol {
         self.coordinator = coordinator
     }
 
+    //MARK: - GenericRouterProtocol
+    func pop() {
+        coordinator.pop()
+    }
 }
 

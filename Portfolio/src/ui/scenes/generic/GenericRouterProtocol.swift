@@ -11,3 +11,8 @@ protocol GenericRouterProtocol {
     func displayNext()
     func pop()
 }
+
+extension GenericRouterProtocol {
+    func displayNext() { }
+    func pop () { }
+}

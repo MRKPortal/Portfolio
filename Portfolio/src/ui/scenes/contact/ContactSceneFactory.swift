@@ -3,7 +3,7 @@
 import SwiftUI
 
 final class ContactSceneFactory: Factory {
-    private lazy var router = ContactSceneRouter(injector, coordinator: coordinator)
+    private lazy var router = GenericRouter(injector: injector, coordinator: coordinator)
     private lazy var presenter = ContactScenePresenter(router)
     
     override func build() -> AnyView {

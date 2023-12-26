@@ -8,13 +8,7 @@
 import Foundation
 
 protocol GenericScenePresenterProtocol {
-    func displayNext()
-    func pop()
-}
-
-extension GenericScenePresenterProtocol {
-    func displayNext() { }
-    func pop() { }
+    func routing(direction: NavigationDirection)
 }
 
 final class GenericScenePresenter: GenericScenePresenterProtocol {
@@ -27,12 +21,8 @@ final class GenericScenePresenter: GenericScenePresenterProtocol {
     
     //MARK: - GenericScenePresenterProtocol
 
-    func displayNext() {
-        router.displayNext()
-    }
-    
-    func pop() {
-        router.pop()
+    func routing(direction: NavigationDirection) {
+        router.routing(direction: direction)
     }
 }
 

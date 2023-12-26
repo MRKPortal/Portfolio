@@ -16,12 +16,8 @@ final class ClientsScenePresenter: ClientsScenePresenterProtocol {
 		self.router = router
 	}
 
-    func pop() {
-        router.pop()
-    }
-    
-    func displayNext() {
-        router.displayNext()
+    func routing(direction: NavigationDirection) {
+        router.routing(direction: direction)
     }
 }
 

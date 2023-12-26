@@ -2,26 +2,11 @@
 
 import Foundation
 
-final class SkillsSceneRouter: GenericRouterProtocol {
-    
-    private let injector: ServicesInjectorProtocol
-    private let coordinator: NavigationCoordinator
-    
-    init(_ injector: ServicesInjectorProtocol, coordinator: NavigationCoordinator) {
-        self.injector = injector
-        self.coordinator = coordinator
-    }
-    
-    func pop() {
-        coordinator.pop()
-    }
-    
-    func displayNext() {
-        coordinator.pushView(
-            ClientsSceneFactory(
-                coordinator: coordinator,
-                injector: injector
-            )
+final class SkillsSceneRouter: GenericRouter {
+    override func nextFactory(injector: ServicesInjectorProtocol, coordinator: NavigationCoordinator) -> Factory {
+        ClientsSceneFactory (
+            coordinator: coordinator,
+            injector: injector
         )
     }
 }

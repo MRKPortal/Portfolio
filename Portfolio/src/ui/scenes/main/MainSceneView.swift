@@ -46,8 +46,8 @@ struct MainSceneView<P: GenericScenePresenterProtocol>: View {
                 }
             }
         }
-        .gestureRouter(directions: [.up]) { _ in
-            presenter.displayNext()
+        .gestureRouter(directions: [.up]) {
+            presenter.routing(direction: $0)
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExplainerSceneView<P: ExplainerScenePresenterProtocol>: View {
     
-    @ObservedObject private var presenter: P
+    private let presenter: P
     
     init(_ presenter: P) {
         self.presenter = presenter
@@ -22,8 +22,8 @@ struct ExplainerSceneView<P: ExplainerScenePresenterProtocol>: View {
             Text("Welcome to MRKPortal!")
                 .applyTextStyle(.h2)
         }
-        .gestureRouter(directions: presenter.directions) { direction in
-            presenter.didSwipe(direction)
+        .gestureRouter { 
+            presenter.routing(direction: $0)
         }
     }
 }

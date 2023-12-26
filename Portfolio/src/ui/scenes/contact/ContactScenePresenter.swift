@@ -41,8 +41,8 @@ final class ContactScenePresenter: ContactScenePresenterProtocol {
 
     //MARK: - GenericScenePresenterProtocol
     
-    func pop() {
-        router.pop()
+    func routing(direction: NavigationDirection) {
+        router.routing(direction: direction)
     }
 }
 

@@ -3,7 +3,7 @@
 import SwiftUI
 
 final class ClientsSceneFactory: Factory {
-    private lazy var router = ClientsSceneRouter(injector, coordinator: coordinator)
+    private lazy var router = ClientsSceneRouter(injector: injector, coordinator: coordinator)
     private lazy var interactor = ClientsSceneInteractor(injector)
     private lazy var presenter = ClientsScenePresenter(interactor, router: router)
     

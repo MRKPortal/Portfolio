@@ -8,14 +8,14 @@ struct SkillSelection: IdentifiableEquatable {
 }
 
 struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
-
+    
     private let generator = UIImpactFeedbackGenerator(style: .light)
-
+    
     @ObservedObject private var presenter: P
     
     @State private var animateDetail: Bool = false
     @State private var selected: SkillSelection?
-
+    
     init(_ presenter: P) {
         self.presenter = presenter
     }
@@ -40,13 +40,8 @@ struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
                         }
                 }
                 .allowsHitTesting(selected == nil)
-                .gestureRouter { direction in
-                    switch direction {
-                    case .down:
-                        presenter.pop()
-                    default:
-                        presenter.displayNext()
-                    }
+                .gestureRouter {
+                    presenter.routing(direction: $0)
                 }
             }
             

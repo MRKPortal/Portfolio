@@ -7,22 +7,21 @@
 
 import Foundation
 
-protocol ExplainerScenePresenterProtocol: ObservableObject {
-    var directions: [NavigationDirection] { get }
-    func didSwipe(_ direction: NavigationDirection)
+protocol ExplainerScenePresenterProtocol: GenericScenePresenterProtocol {
 }
 
 final class ExplainerScenePresenter: ExplainerScenePresenterProtocol {
 
+    private let router: GenericRouterProtocol
+    
     init(_ interactor: ExplainerSceneInteractorProtocol, rotuer: GenericRouterProtocol) {
-        
+        self.router = rotuer
     }
     
-    var directions: [NavigationDirection] {
-        [.down]
+    //MARK: - GenericScenePresenterProtocol
+    
+    func routing(direction: NavigationDirection) {
+        router.routing(direction: direction)
     }
     
-    func didSwipe(_ direction: NavigationDirection) {
-
-    }
 }

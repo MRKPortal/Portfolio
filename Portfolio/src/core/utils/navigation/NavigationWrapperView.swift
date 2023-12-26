@@ -25,8 +25,7 @@ struct NavigationWrapperView: View {
                 factory.build()
                     .zIndex(Double(path.count))
                     .transition(
-                        push ? .push(from: .bottom).combined(with: .opacity) :
-                                .push(from: .top).combined(with: .opacity)
+                        .push(from: push ? .bottom : .top)
                     )
             }
         }.onChange(of: navCoordinator.path) { path in
@@ -37,3 +36,4 @@ struct NavigationWrapperView: View {
         }
     }
 }
+

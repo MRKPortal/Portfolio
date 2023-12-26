@@ -20,8 +20,6 @@
 		0611FDDE2B0AA3D8008A6CDE /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDDC2B0AA3D8008A6CDE /* ColorScheme.swift */; };
 		0611FE0B2B0AA4A5008A6CDE /* ContactScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDE62B0AA4A5008A6CDE /* ContactScenePresenter.swift */; };
 		0611FE0C2B0AA4A5008A6CDE /* ContactScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDE62B0AA4A5008A6CDE /* ContactScenePresenter.swift */; };
-		0611FE0F2B0AA4A5008A6CDE /* ContactSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDE82B0AA4A5008A6CDE /* ContactSceneRouter.swift */; };
-		0611FE102B0AA4A5008A6CDE /* ContactSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDE82B0AA4A5008A6CDE /* ContactSceneRouter.swift */; };
 		0611FE112B0AA4A5008A6CDE /* ContactSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDE92B0AA4A5008A6CDE /* ContactSceneFactory.swift */; };
 		0611FE122B0AA4A5008A6CDE /* ContactSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDE92B0AA4A5008A6CDE /* ContactSceneFactory.swift */; };
 		0611FE132B0AA4A5008A6CDE /* ContactSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0611FDEA2B0AA4A5008A6CDE /* ContactSceneView.swift */; };
@@ -103,8 +101,8 @@
 		0638F7392B3715DA001CB008 /* DragDownModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638F7372B3715DA001CB008 /* DragDownModifier.swift */; };
 		0638F73B2B3722A8001CB008 /* CoreGraphics+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638F73A2B3722A8001CB008 /* CoreGraphics+Utils.swift */; };
 		0638F73C2B3722A8001CB008 /* CoreGraphics+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638F73A2B3722A8001CB008 /* CoreGraphics+Utils.swift */; };
-		0638F7432B37AE6B001CB008 /* GenericRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638F7422B37AE6B001CB008 /* GenericRouterProtocol.swift */; };
-		0638F7442B37AE6B001CB008 /* GenericRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638F7422B37AE6B001CB008 /* GenericRouterProtocol.swift */; };
+		0638F7432B37AE6B001CB008 /* GenericRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638F7422B37AE6B001CB008 /* GenericRouter.swift */; };
+		0638F7442B37AE6B001CB008 /* GenericRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638F7422B37AE6B001CB008 /* GenericRouter.swift */; };
 		0638F7462B37AE8C001CB008 /* GenericScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638F7452B37AE8C001CB008 /* GenericScenePresenter.swift */; };
 		0638F7472B37AE8C001CB008 /* GenericScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638F7452B37AE8C001CB008 /* GenericScenePresenter.swift */; };
 		063BBAE72B3ADD830040D0A7 /* ExplainerSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063BBAE62B3ADD830040D0A7 /* ExplainerSceneView.swift */; };
@@ -128,6 +126,7 @@
 		064530392B2124A100E7880D /* View+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064530372B2124A100E7880D /* View+Frame.swift */; };
 		068411C42B232EFC00CDC7B7 /* ROBOTO-REGULAR.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 068411C32B232EFC00CDC7B7 /* ROBOTO-REGULAR.TTF */; };
 		068411C52B232EFC00CDC7B7 /* ROBOTO-REGULAR.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 068411C32B232EFC00CDC7B7 /* ROBOTO-REGULAR.TTF */; };
+		06A9C4AD2B3B41DE00791622 /* ExplainerSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A9C4AC2B3B41DE00791622 /* ExplainerSceneRouter.swift */; };
 		06B186BC2B1E27EA005BEA60 /* ParallaxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */; };
 		06B186BD2B1E27EA005BEA60 /* ParallaxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */; };
 		06C0AD4E2B1E3E380003249B /* Localizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06C0AD512B1E3E380003249B /* Localizables.strings */; };
@@ -192,7 +191,6 @@
 		0611FDD92B0AA2D5008A6CDE /* ColorScheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorScheme.xcassets; sourceTree = "<group>"; };
 		0611FDDC2B0AA3D8008A6CDE /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		0611FDE62B0AA4A5008A6CDE /* ContactScenePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactScenePresenter.swift; sourceTree = "<group>"; };
-		0611FDE82B0AA4A5008A6CDE /* ContactSceneRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSceneRouter.swift; sourceTree = "<group>"; };
 		0611FDE92B0AA4A5008A6CDE /* ContactSceneFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSceneFactory.swift; sourceTree = "<group>"; };
 		0611FDEA2B0AA4A5008A6CDE /* ContactSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSceneView.swift; sourceTree = "<group>"; };
 		0611FDEC2B0AA4A5008A6CDE /* NavigationWrapperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationWrapperView.swift; sourceTree = "<group>"; };
@@ -234,7 +232,7 @@
 		062889492B32214100F89279 /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
 		0638F7372B3715DA001CB008 /* DragDownModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDownModifier.swift; sourceTree = "<group>"; };
 		0638F73A2B3722A8001CB008 /* CoreGraphics+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Utils.swift"; sourceTree = "<group>"; };
-		0638F7422B37AE6B001CB008 /* GenericRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRouterProtocol.swift; sourceTree = "<group>"; };
+		0638F7422B37AE6B001CB008 /* GenericRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRouter.swift; sourceTree = "<group>"; };
 		0638F7452B37AE8C001CB008 /* GenericScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericScenePresenter.swift; sourceTree = "<group>"; };
 		063BBAE62B3ADD830040D0A7 /* ExplainerSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainerSceneView.swift; sourceTree = "<group>"; };
 		063BBAE82B3ADD9A0040D0A7 /* ExplainerScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainerScenePresenter.swift; sourceTree = "<group>"; };
@@ -249,6 +247,7 @@
 		064530342B21033F00E7880D /* DistributorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributorProtocol.swift; sourceTree = "<group>"; };
 		064530372B2124A100E7880D /* View+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Frame.swift"; sourceTree = "<group>"; };
 		068411C32B232EFC00CDC7B7 /* ROBOTO-REGULAR.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ROBOTO-REGULAR.TTF"; sourceTree = "<group>"; };
+		06A9C4AC2B3B41DE00791622 /* ExplainerSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainerSceneRouter.swift; sourceTree = "<group>"; };
 		06B186BB2B1E27EA005BEA60 /* ParallaxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxModifier.swift; sourceTree = "<group>"; };
 		06C0AD502B1E3E380003249B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizables.strings; sourceTree = "<group>"; };
 		06C0AD522B1E3EB00003249B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizables.strings; sourceTree = "<group>"; };
@@ -498,9 +497,8 @@
 		0611FDE52B0AA4A5008A6CDE /* contact */ = {
 			isa = PBXGroup;
 			children = (
-				0611FDE62B0AA4A5008A6CDE /* ContactScenePresenter.swift */,
-				0611FDE82B0AA4A5008A6CDE /* ContactSceneRouter.swift */,
 				0611FDE92B0AA4A5008A6CDE /* ContactSceneFactory.swift */,
+				0611FDE62B0AA4A5008A6CDE /* ContactScenePresenter.swift */,
 				0611FDEA2B0AA4A5008A6CDE /* ContactSceneView.swift */,
 			);
 			path = contact;
@@ -510,10 +508,10 @@
 			isa = PBXGroup;
 			children = (
 				062889362B31F44F00F89279 /* subViews */,
-				0611FDF02B0AA4A5008A6CDE /* SkillsScenePresenter.swift */,
 				0611FDF12B0AA4A5008A6CDE /* SkillsSceneFactory.swift */,
-				0611FDF22B0AA4A5008A6CDE /* SkillsSceneInteractor.swift */,
 				0611FDF32B0AA4A5008A6CDE /* SkillsSceneView.swift */,
+				0611FDF22B0AA4A5008A6CDE /* SkillsSceneInteractor.swift */,
+				0611FDF02B0AA4A5008A6CDE /* SkillsScenePresenter.swift */,
 				0611FDF42B0AA4A5008A6CDE /* SkillsSceneRouter.swift */,
 			);
 			path = skills;
@@ -522,9 +520,9 @@
 		0611FDF52B0AA4A5008A6CDE /* main */ = {
 			isa = PBXGroup;
 			children = (
+				0611FDF82B0AA4A5008A6CDE /* MainSceneFactory.swift */,
 				0611FDF62B0AA4A5008A6CDE /* MainSceneView.swift */,
 				0611FDF72B0AA4A5008A6CDE /* MainSceneRouter.swift */,
-				0611FDF82B0AA4A5008A6CDE /* MainSceneFactory.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -656,10 +654,11 @@
 		063BBAE52B3ADD700040D0A7 /* explainer */ = {
 			isa = PBXGroup;
 			children = (
+				063BBAF22B3AE8110040D0A7 /* ExplainerSceneFactory.swift */,
 				063BBAE62B3ADD830040D0A7 /* ExplainerSceneView.swift */,
 				063BBAED2B3AE7500040D0A7 /* ExplainerSceneInteractor.swift */,
 				063BBAE82B3ADD9A0040D0A7 /* ExplainerScenePresenter.swift */,
-				063BBAF22B3AE8110040D0A7 /* ExplainerSceneFactory.swift */,
+				06A9C4AC2B3B41DE00791622 /* ExplainerSceneRouter.swift */,
 			);
 			path = explainer;
 			sourceTree = "<group>";
@@ -667,7 +666,7 @@
 		063BBAEA2B3ADEBD0040D0A7 /* base */ = {
 			isa = PBXGroup;
 			children = (
-				0638F7422B37AE6B001CB008 /* GenericRouterProtocol.swift */,
+				0638F7422B37AE6B001CB008 /* GenericRouter.swift */,
 				0638F7452B37AE8C001CB008 /* GenericScenePresenter.swift */,
 			);
 			path = base;
@@ -981,6 +980,7 @@
 				06EBC4282B38A35300BECF6D /* AnimatedBorderView.swift in Sources */,
 				0611FDDD2B0AA3D8008A6CDE /* ColorScheme.swift in Sources */,
 				0611FE3E2B0AA616008A6CDE /* Localizables.swift in Sources */,
+				06A9C4AD2B3B41DE00791622 /* ExplainerSceneRouter.swift in Sources */,
 				06EBC42A2B3A297200BECF6D /* ContactType.swift in Sources */,
 				063BBAE92B3ADD9A0040D0A7 /* ExplainerScenePresenter.swift in Sources */,
 				062889232B31EBF500F89279 /* AppConstants.swift in Sources */,
@@ -1015,7 +1015,7 @@
 				0611FE272B0AA4A5008A6CDE /* MainSceneRouter.swift in Sources */,
 				064530382B2124A100E7880D /* View+Frame.swift in Sources */,
 				062889192B31E7F900F89279 /* BaseRequest.swift in Sources */,
-				0638F7432B37AE6B001CB008 /* GenericRouterProtocol.swift in Sources */,
+				0638F7432B37AE6B001CB008 /* GenericRouter.swift in Sources */,
 				06C0AD5F2B1E40D10003249B /* TextStyleModifier.swift in Sources */,
 				062889152B31E7B200F89279 /* APIService.swift in Sources */,
 				0611FE132B0AA4A5008A6CDE /* ContactSceneView.swift in Sources */,
@@ -1038,7 +1038,6 @@
 				06EBC4252B386D4E00BECF6D /* ClientsSceneRouter.swift in Sources */,
 				06EBC42D2B3A3A5E00BECF6D /* IconButton.swift in Sources */,
 				0611FE152B0AA4A5008A6CDE /* NavigationWrapperView.swift in Sources */,
-				0611FE0F2B0AA4A5008A6CDE /* ContactSceneRouter.swift in Sources */,
 				062889442B3214C800F89279 /* HiveView.swift in Sources */,
 				0611FE572B0AB88E008A6CDE /* CoreGraphics+Operators.swift in Sources */,
 				0628893E2B3212CA00F89279 /* Array+Numeration.swift in Sources */,
@@ -1084,7 +1083,7 @@
 				0611FE1E2B0AA4A5008A6CDE /* SkillsSceneFactory.swift in Sources */,
 				064530392B2124A100E7880D /* View+Frame.swift in Sources */,
 				0628891A2B31E7F900F89279 /* BaseRequest.swift in Sources */,
-				0638F7442B37AE6B001CB008 /* GenericRouterProtocol.swift in Sources */,
+				0638F7442B37AE6B001CB008 /* GenericRouter.swift in Sources */,
 				06C0AD602B1E40D10003249B /* TextStyleModifier.swift in Sources */,
 				0611FE282B0AA4A5008A6CDE /* MainSceneRouter.swift in Sources */,
 				062889162B31E7B200F89279 /* APIService.swift in Sources */,
@@ -1106,7 +1105,6 @@
 				0611FE202B0AA4A5008A6CDE /* SkillsSceneInteractor.swift in Sources */,
 				062889392B31F45E00F89279 /* SkillCellView.swift in Sources */,
 				0611FE162B0AA4A5008A6CDE /* NavigationWrapperView.swift in Sources */,
-				0611FE102B0AA4A5008A6CDE /* ContactSceneRouter.swift in Sources */,
 				062889452B3214C800F89279 /* HiveView.swift in Sources */,
 				0611FE582B0AB88E008A6CDE /* CoreGraphics+Operators.swift in Sources */,
 				0628893F2B3212CA00F89279 /* Array+Numeration.swift in Sources */,

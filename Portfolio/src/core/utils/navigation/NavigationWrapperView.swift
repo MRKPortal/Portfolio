@@ -11,7 +11,7 @@ struct NavigationWrapperView: View {
     
     @ObservedObject private var navCoordinator: NavigationCoordinator
     
-    @State private var path: [NavigationNode] = []
+    @State private var path: [Factory] = []
     
     init(coordinator: NavigationCoordinator) {
         self.navCoordinator = coordinator
@@ -22,28 +22,17 @@ struct NavigationWrapperView: View {
             Color.base2
                 .edgesIgnoringSafeArea(.all)
             ZStack {
-                ForEach(Array(path.enumerated()), id: \.offset) { offset, node in
-                    node.factory.build()
-                        .zIndex(CGFloat(offset))
-                        .transition(node.direction.transition.combined(with: .opacity))
-                        .didBecameTop(path.isLast(node))
+                if let factory = path.last {
+                    factory.build()
+                        .transition(
+                            .push(from: .bottom)
+                        )
                 }
             }
         }.onChange(of: navCoordinator.path) { path in
             withAnimation {
                 self.path = path
             }
-        }
-    }
-}
-
-private extension NavigationDirection {
-    var transition: AnyTransition {
-        switch self {
-        case .down: .move(edge: .top)
-        case .up: .move(edge: .bottom)
-        case .left: .move(edge: .trailing)
-        case .right: .move(edge: .leading)
         }
     }
 }

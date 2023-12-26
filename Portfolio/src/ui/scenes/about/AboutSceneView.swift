@@ -16,7 +16,7 @@ struct AboutSceneView<P: GenericScenePresenterProtocol>: View {
                 .base2
             Text("Rmember kids!\n Quality over quantity")
         }
-        .gestureRouter(directions: [.left, .down]) { direction in
+        .gestureRouter { direction in
             switch direction {
             case .down:
                 presenter.pop()

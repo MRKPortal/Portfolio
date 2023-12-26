@@ -40,9 +40,9 @@ struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
                         }
                 }
                 .allowsHitTesting(selected == nil)
-                .gestureRouter(directions: [.right, .left]) { direction in
+                .gestureRouter { direction in
                     switch direction {
-                    case .right:
+                    case .up:
                         presenter.pop()
                     default:
                         presenter.displayNext()

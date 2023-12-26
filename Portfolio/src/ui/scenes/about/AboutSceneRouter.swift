@@ -18,8 +18,10 @@ final class AboutSceneRouter: GenericRouterProtocol {
     
     func displayNext() {
         coordinator.pushView(
-            factory: SkillsSceneFactory(coordinator: coordinator, injector: injector),
-            direction: .left
+            SkillsSceneFactory(
+                coordinator: coordinator,
+                injector: injector
+            )
         )
     }
 }

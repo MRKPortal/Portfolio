@@ -18,8 +18,10 @@ final class ClientsSceneRouter: GenericRouterProtocol {
     
     func displayNext() {
         coordinator.pushView(
-            factory: ContactSceneFactory(coordinator: coordinator, injector: injector),
-            direction: .left
+            ContactSceneFactory(
+                coordinator: coordinator,
+                injector: injector
+            )
         )
     }
 }

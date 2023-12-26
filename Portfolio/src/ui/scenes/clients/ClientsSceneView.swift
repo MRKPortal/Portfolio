@@ -37,9 +37,9 @@ struct ClientsSceneView<P: ClientsScenePresenterProtocol>: View {
                 degree = 360
             }
         }
-        .gestureRouter(directions: [.left, .right]) { direction in
+        .gestureRouter { direction in
             switch direction {
-            case .right:
+            case .up:
                 presenter.pop()
             default:
                 presenter.displayNext()

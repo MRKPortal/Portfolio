@@ -21,8 +21,8 @@ struct MainSceneView<P: GenericScenePresenterProtocol>: View {
                     .logoFull
                     .resizable()
                     .scaledToFit()
-                Text(Ls.appMoto)
-                    .applyTextStyle(.h4)
+                Text(Ls.appMoto.uppercased())
+                    .applyTextStyle(.h1)
                     .multilineTextAlignment(.center)
             }
             .padding(32)

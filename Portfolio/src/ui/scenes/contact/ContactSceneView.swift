@@ -28,7 +28,7 @@ struct ContactSceneView<P: ContactScenePresenterProtocol>: View {
                 }
             }
         }
-        .gestureRouter(directions: [.up]) { _ in
+        .gestureRouter(directions: [.down]) { _ in
             presenter.pop()
         }
         .onAppear {

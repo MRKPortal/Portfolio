@@ -42,7 +42,7 @@ struct SkillsSceneView<P: SkillsScenePresenterProtocol>: View {
                 .allowsHitTesting(selected == nil)
                 .gestureRouter { direction in
                     switch direction {
-                    case .up:
+                    case .down:
                         presenter.pop()
                     default:
                         presenter.displayNext()

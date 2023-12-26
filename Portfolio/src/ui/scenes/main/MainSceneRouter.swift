@@ -16,7 +16,7 @@ final class MainSceneRouter: GenericRouterProtocol {
     
     func displayNext() {
         coordinator.pushView(
-            AboutSceneFactory(
+            SkillsSceneFactory(
                 coordinator: coordinator,
                 injector: injector
             )

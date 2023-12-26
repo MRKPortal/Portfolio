@@ -14,7 +14,6 @@ enum NavigationDirection {
 
 private struct GestureRouterModifier: ViewModifier {
     @State private var offset: CGSize = .zero
-    @State private var opacity: CGFloat = 1
 
     private let generator = UIImpactFeedbackGenerator(style: .light)
 
@@ -25,7 +24,6 @@ private struct GestureRouterModifier: ViewModifier {
     func body(content: Content) -> some View {
         GeometryReader { reader in
             content
-                .opacity(opacity)
                 .offset(offset)
                 .gesture(
                     DragGesture()
@@ -33,20 +31,17 @@ private struct GestureRouterModifier: ViewModifier {
                             withAnimation(.spring) {
                                 if let direction = directions.first(where: { $0.satisfiesUpdate(gesture) }) {
                                     offset = direction.calculateOffset(gesture)
-                                    opacity = direction.calculateOpacity(gesture, reader.size)
                                 }
                             }
                         }
                         .onEnded { gesture in
-                            withAnimation(.bouncy) {
+                            withAnimation(.spring(duration: 0.5)) {
                                 if let direction = directions.first(where: { $0.satisfiesEnd(gesture, reader.size, speedThreshold) }) {
                                     routingCallback(direction)
                                     generator.impactOccurred()
                                     offset = direction.finalOffset(reader.size)
-                                    opacity = 0
                                 } else {
                                     offset = .zero
-                                    opacity = 1
                                 }
                             }
                         }
@@ -76,14 +71,7 @@ extension NavigationDirection {
                 .s(h: gesture.translation.height)
         }
     }
-    
-    func calculateOpacity(_ gesture: DragGesture.Value, _ screenSize: CGSize) -> CGFloat {
-        switch self {
-        case .down: 1 - 2 * gesture.translation.height / screenSize.height
-        case .up: 1 + 2 * gesture.translation.height / screenSize.height
-        }
-    }
-    
+
     func finalOffset(_ screenSize: CGSize) -> CGSize {
         switch self {
         case .down: .s(h: screenSize.height)

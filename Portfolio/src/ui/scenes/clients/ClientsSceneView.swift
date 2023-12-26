@@ -39,7 +39,7 @@ struct ClientsSceneView<P: ClientsScenePresenterProtocol>: View {
         }
         .gestureRouter { direction in
             switch direction {
-            case .up:
+            case .down:
                 presenter.pop()
             default:
                 presenter.displayNext()

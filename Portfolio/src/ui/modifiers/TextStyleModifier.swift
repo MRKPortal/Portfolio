@@ -17,6 +17,7 @@ private struct TextStyleModifier: ViewModifier {
             .font(style.font)
             .foregroundColor(tint)
             .lineSpacing(style.lineSpacing)
+            .kerning(style.kern)
     }
 }
 

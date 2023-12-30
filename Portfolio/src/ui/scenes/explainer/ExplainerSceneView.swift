@@ -11,19 +11,30 @@ struct ExplainerSceneView<P: ExplainerScenePresenterProtocol>: View {
     
     private let presenter: P
     
+    @State private var animate: Bool = false
+    
     init(_ presenter: P) {
         self.presenter = presenter
     }
     
     var body: some View {
-        ZStack {
-            Color
-                .base2
-            Text("Welcome to MRKPortal!")
-                .applyTextStyle(.h2)
+        GeometryReader { reader in
+            ZStack {
+                Color
+                    .base2
+                
+                AvatarView()
+                    .frame(size: .s(w: 100, h: 180))
+            }
+//            .offset(y: animate ? 0 : reader.size.height)
         }
-        .gestureRouter { 
+        .gestureRouter {
             presenter.routing(direction: $0)
+        }
+        .onAppear {
+            withAnimation(.bouncy.delay(1)) {
+                animate.toggle()
+            }
         }
     }
 }

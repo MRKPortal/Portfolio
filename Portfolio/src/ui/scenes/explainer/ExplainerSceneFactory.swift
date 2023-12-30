@@ -27,3 +27,45 @@ final class AboutSceneFactory: Factory {
         AnyView(ExplainerSceneView(presenter))
     }
 }
+
+final class PrinciplesSceneFactory: Factory {
+
+    private lazy var presenter = ExplainerScenePresenter(interactor, rotuer: router)
+    
+    private lazy var interactor = ExplainerSceneInteractor([
+        .titledText(Ls.aboutExplainer01, Ls.aboutExplainer02),
+        .plainText(Ls.aboutExplainer03),
+        .plainText(Ls.aboutExplainer04),
+        .plainText(Ls.aboutExplainer05)
+    ])
+
+    private lazy var router = ExplainerSceneRouter<ClientsSceneFactory>(
+        injector: injector,
+        coordinator: coordinator
+    )
+    
+    override func build() -> AnyView {
+        AnyView(ExplainerSceneView(presenter))
+    }
+}
+
+final class SummarySceneFactory: Factory {
+
+    private lazy var presenter = ExplainerScenePresenter(interactor, rotuer: router)
+    
+    private lazy var interactor = ExplainerSceneInteractor([
+        .titledText(Ls.aboutExplainer01, Ls.aboutExplainer02),
+        .plainText(Ls.aboutExplainer03),
+        .plainText(Ls.aboutExplainer04),
+        .plainText(Ls.aboutExplainer05)
+    ])
+
+    private lazy var router = ExplainerSceneRouter<ContactSceneFactory>(
+        injector: injector,
+        coordinator: coordinator
+    )
+    
+    override func build() -> AnyView {
+        AnyView(ExplainerSceneView(presenter))
+    }
+}

@@ -12,7 +12,7 @@ struct NgonShape: Shape {
     let points: Int
     
     func path(in rect: CGRect) -> Path {
-        let radius = min(rect.size.width, rect.size.height)/2
+        let radius = rect.size/2
         let center = CGPoint(x: rect.midX, y: rect.midY)
         let floatTotal = CGFloat(points)
         var path = Path()
@@ -20,8 +20,8 @@ struct NgonShape: Shape {
             let floatPoint = CGFloat(point)
             let radians = floatPoint * (2 * .pi) / floatTotal + (.pi / 2)
             let coords = center + CGPoint(
-                x: radius * cos(radians),
-                y: radius * sin(radians)
+                x: radius.width * cos(radians),
+                y: radius.height * sin(radians)
             )
             
             if point == 0 {

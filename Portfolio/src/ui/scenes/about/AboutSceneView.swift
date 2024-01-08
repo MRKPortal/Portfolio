@@ -32,19 +32,24 @@ struct AboutSceneView<P: AboutScenePresenterProtocol>: View {
                         .applyTextStyle(.h2)
                         .multilineTextAlignment(.center)
                     Spacer()
+                }
+                .padding(.vertical, 36)
+                
+                VStack {
+                    Spacer() 
                     AvatarView()
                         .frame(size: .s(w: 100, h: 180))
                 }
-                .padding(.vertical, 36)
+                .offset(y: animate ? 0 : -reader.size.height)
+                .onAppear {
+                    withAnimation(.bouncy.delay(1)) {
+                        animate.toggle()
+                    }
+                }
             }
         }
         .gestureRouter {
             presenter.routing(direction: $0)
-        }
-        .onAppear {
-            withAnimation(.bouncy.delay(1)) {
-                animate.toggle()
-            }
         }
     }
 }

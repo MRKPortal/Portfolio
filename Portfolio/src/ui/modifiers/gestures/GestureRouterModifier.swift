@@ -30,7 +30,7 @@ private struct GestureRouterModifier: ViewModifier {
                         .onChanged { gesture in
                             withAnimation(.spring) {
                                 if let direction = directions.first(where: { $0.satisfiesUpdate(gesture) }) {
-                                    offset = direction.calculateOffset(gesture)
+                                    offset = .s(h: gesture.translation.height)
                                 }
                             }
                         }
@@ -54,9 +54,13 @@ private struct GestureRouterModifier: ViewModifier {
 
 extension NavigationDirection {
     func satisfiesUpdate(_ gesture: DragGesture.Value) -> Bool {
-        switch self {
-        case .down: gesture.translation.height > 0 && gesture.translation.isHeightBigger
-        case .up: gesture.translation.height < 0 && gesture.translation.isHeightBigger
+        guard gesture.translation.isHeightBigger else {
+            return false
+        }
+
+        return switch self {
+        case .down: gesture.translation.height > 0
+        case .up: gesture.translation.height < 0
         }
     }
     
@@ -64,13 +68,6 @@ extension NavigationDirection {
         switch self {
         case .up: -gesture.translation.height > screenSize.height/4 || -gesture.velocity.height > speedThreshold
         case .down: gesture.translation.height > screenSize.height/4 || gesture.velocity.height > speedThreshold
-        }
-    }
-    
-    func calculateOffset(_ gesture: DragGesture.Value) -> CGSize {
-        switch self {
-        case .down, .up:
-                .s(h: gesture.translation.height)
         }
     }
     

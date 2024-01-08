@@ -28,13 +28,16 @@
 "about_explainer_05" = "Let's take a look at the portals, follow me!";
 
 /* */
-"contact_mail_description" = "And that's all folks!\nIf you are interested in our experience don't hesitate to mail us";
+"contact_introduction" = "And that's all folks!\nHope you enjoyed this little tour.";
+
+/* */
+"contact_mail_description" = "If you are interested in our experience don't hesitate to mail us at projects@mrkportal.com";
 
 /* */
 "contact_git_description" = "If you would like to see a little about our code before taking any decision, you can check the very code of this App in our Github";
 
 /* */
-"contact_linkedin_description" = "Get a little about more information about us and our team on LinkedIN";
+"contact_linkedin_description" = "Get a little more information about us and our team on LinkedIn";
 
 /* */
 "contact_social_description" = "Follow us on Instagram and Threads to get the last updates on our cool projects!";

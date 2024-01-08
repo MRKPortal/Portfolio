@@ -27,9 +27,11 @@ public enum Ls {
   /// 
   public static let contactGitDescription = Ls.tr("Localizables", "contact_git_description", fallback: "If you would like to see a little about our code before taking any decision, you can check the very code of this App in our Github")
   /// 
-  public static let contactLinkedinDescription = Ls.tr("Localizables", "contact_linkedin_description", fallback: "Get a little about more information about us and our team on LinkedIN")
+  public static let contactIntroduction = Ls.tr("Localizables", "contact_introduction", fallback: "And that's all folks!\nHope you enjoyed this little tour.")
   /// 
-  public static let contactMailDescription = Ls.tr("Localizables", "contact_mail_description", fallback: "And that's all folks!\nIf you are interested in our experience don't hesitate to mail us")
+  public static let contactLinkedinDescription = Ls.tr("Localizables", "contact_linkedin_description", fallback: "Get a little more information about us and our team on LinkedIn")
+  /// 
+  public static let contactMailDescription = Ls.tr("Localizables", "contact_mail_description", fallback: "If you are interested in our experience don't hesitate to mail us at projects@mrkportal.com")
   /// 
   public static let contactSocialDescription = Ls.tr("Localizables", "contact_social_description", fallback: "Follow us on Instagram and Threads to get the last updates on our cool projects!")
 }

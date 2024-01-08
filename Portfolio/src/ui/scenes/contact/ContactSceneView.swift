@@ -4,10 +4,14 @@ import SwiftUI
 
 struct ContactSceneView<P: ContactScenePresenterProtocol>: View {
 
-    private let presenter: P
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     
+    @ObservedObject private var presenter: P
+
     @State private var animate: Bool = false
-    
+    @State private var dialog = Ls.contactIntroduction
+    @State private var dialogValue = -1
+
     init(_ presenter: P) {
         self.presenter = presenter
     }
@@ -17,25 +21,41 @@ struct ContactSceneView<P: ContactScenePresenterProtocol>: View {
             VStack {
                 ZStack {
                     Color.base2
-                    
+                    let percent = Double(dialogValue)/Double(presenter.dialogs.count)
+                    SkillCellView(nil)
+                        .frame(size: .s(reader.size.width/2.5))
+                        .opacity(dialogValue > -1 ? 1 : 0)
+                        .offset(.angle(.degrees(percent * 360 - 90)) * reader.size.width * (animate ? 1/4 : 1) )
+
                     ForEach(Array(presenter.contacts.enumerated()), id: \.offset) { offset, contact in
-                        let offset = Double(offset)
-                        let percent = offset/Double(presenter.contacts.count)
+                        let delay = Double(offset)
+                        let percent = delay/Double(presenter.contacts.count)
                         IconButton(icon: contact.icon) {
                             presenter.didTapContact(contact)
                         }
                         .frame(size: .s(reader.size.width/5))
                         .opacity(animate ? 1 : 0)
-                        .offset(.angle(.degrees(percent * 360)) * reader.size.width * (animate ? 1/4 : 1) )
-                        .animation(.bouncy.delay(1 + 0.5 * offset), value: animate)
+                        .offset(.angle(.degrees(percent * 360 - 90)) * reader.size.width * (animate ? 1/4 : 1) )
+                        .animation(.bouncy.delay(0.75 + 0.25 * delay), value: animate)
+                        .scaleEffect(dialogValue == offset ? 1 : 0.9)
+                        .animation(.bouncy, value: animate)
                     }
                 }
+                .frame(height: reader.size.height/1.8)
                 
                 Spacer()
+
+                Text(dialog)
+                    .applyTextStyle(.h4)
+                    .multilineTextAlignment(.center)
+                    .animation(.spring, value: dialog)
+                    .padding(.bottom, 16)
+                    .padding(.horizontal, 16)
                 
+                Spacer()
+
                 AvatarView()
                     .frame(size: .s(w: 100, h: 180))
-                
             }
         }
         .gestureRouter(directions: [.down]) {
@@ -43,6 +63,12 @@ struct ContactSceneView<P: ContactScenePresenterProtocol>: View {
         }
         .onAppear {
             animate.toggle()
+        }
+        .onReceive(timer) { _ in
+            withAnimation {
+                dialogValue = (dialogValue + 1) % presenter.dialogs.count
+                dialog = presenter.dialogs[dialogValue]
+            }
         }
     }
 }

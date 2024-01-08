@@ -27,9 +27,9 @@ struct ClientsSceneView<P: ClientsScenePresenterProtocol>: View {
                     Text("Company")
                         .applyTextStyle(.h4, tint: .base0)
                 }
-                    .rotationEffect(.degrees(degree))
-                    .offset(.angle(.degrees(360 * percent)) * radius)
-                    .rotationEffect(.degrees(-degree))
+                .rotationEffect(.degrees(degree))
+                .offset(.angle(.degrees(360 * percent)) * radius)
+                .rotationEffect(.degrees(-degree))
             }
         }
         .onAppear {
@@ -37,13 +37,8 @@ struct ClientsSceneView<P: ClientsScenePresenterProtocol>: View {
                 degree = 360
             }
         }
-        .gestureRouter(directions: [.left, .right]) { direction in
-            switch direction {
-            case .right:
-                presenter.pop()
-            default:
-                presenter.displayNext()
-            }
+        .gestureRouter {
+            presenter.routing(direction: $0)
         }
     }
 }

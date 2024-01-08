@@ -29,12 +29,8 @@ final class SkillsScenePresenter: SkillsScenePresenterProtocol {
         }
     }
     
-    func pop() {
-        router.pop()
-    }
-    
-    func displayNext() {
-        router.displayNext()
+    func routing(direction: NavigationDirection) {
+        router.routing(direction: direction)
     }
 }
 

@@ -10,40 +10,37 @@ import SwiftUI
 struct NavigationWrapperView: View {
     
     @ObservedObject private var navCoordinator: NavigationCoordinator
-    
-    @State private var path: [NavigationNode] = []
+    @State private var push: Bool = true
+    @State private var path: [Factory] = []
     
     init(coordinator: NavigationCoordinator) {
         self.navCoordinator = coordinator
     }
-    
+
     var body: some View {
         ZStack {
-            Color.base2
-                .edgesIgnoringSafeArea(.all)
-            ZStack {
-                ForEach(Array(path.enumerated()), id: \.offset) { offset, node in
-                    node.factory.build()
-                        .zIndex(CGFloat(offset))
-                        .transition(node.direction.transition.combined(with: .opacity))
-                        .didBecameTop(path.isLast(node))
+            GeometryReader { reader in
+                Color.base2
+                    .edgesIgnoringSafeArea(.all)
+                ZStack {
+                    ForEach(path) { factory in
+                        factory.build()
+                            .zIndex(path.last == factory ? 1 : 0)
+                            .opacity(path.last == factory ? 1 : 0)
+                            .offset(y: reader.size.height * (path.last == factory ? 0 : -1))
+                            .transition(
+                                .move(edge: .bottom)
+                                .combined(with: .opacity)
+                            )
+                    }
                 }
             }
-        }.onChange(of: navCoordinator.path) { path in
+        }.onChange(of: navCoordinator.path) { old, new in
+            push = old.count < new.count
             withAnimation {
-                self.path = path
+                self.path = new
             }
         }
     }
 }
 
-private extension NavigationDirection {
-    var transition: AnyTransition {
-        switch self {
-        case .down: .move(edge: .top)
-        case .up: .move(edge: .bottom)
-        case .left: .move(edge: .trailing)
-        case .right: .move(edge: .leading)
-        }
-    }
-}

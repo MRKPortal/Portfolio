@@ -3,7 +3,7 @@
 import SwiftUI
 
 final class SkillsSceneFactory: Factory {
-    private lazy var router = SkillsSceneRouter(injector, coordinator: coordinator)
+    private lazy var router = SkillsSceneRouter(injector: injector, coordinator: coordinator)
     private lazy var interactor = SkillsSceneInteractor(injector)
     private lazy var presenter = SkillsScenePresenter(interactor, router: router)
     

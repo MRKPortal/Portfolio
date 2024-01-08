@@ -8,33 +8,15 @@
 import Combine
 import SwiftUI
 
-final class NavigationNode: IdentifiableEquatable {
-    
-    var id: String {
-        factory.id
-    }
-    
-    let factory: Factory
-    let direction: NavigationDirection
-    
-    init(factory: Factory, direction: NavigationDirection) {
-        self.factory = factory
-        self.direction = direction
-    }
-}
-
 final class NavigationCoordinator: ObservableObject {
 
-    @Published var path: [NavigationNode] = []
+    @Published var path: [Factory] = []
 
     //MARK: PUSH
 
-    func pushView(factory: Factory, direction: NavigationDirection) {
+    func pushView(_ factory: Factory) {
         path.append(
-            NavigationNode(
-                factory: factory,
-                direction: direction
-            )
+            factory
         )
     }
     

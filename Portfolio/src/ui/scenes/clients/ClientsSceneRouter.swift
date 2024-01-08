@@ -4,7 +4,7 @@ import Foundation
 
 final class ClientsSceneRouter: GenericRouter {
     override func nextFactory(injector: ServicesInjectorProtocol, coordinator: NavigationCoordinator) -> Factory {
-        SummarySceneFactory (
+        ContactSceneFactory (
             coordinator: coordinator,
             injector: injector
         )

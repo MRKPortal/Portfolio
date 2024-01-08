@@ -3,8 +3,10 @@
 import SwiftUI
 
 struct ContactSceneView<P: ContactScenePresenterProtocol>: View {
-    
+
     private let presenter: P
+    
+    @State private var animate: Bool = false
     
     init(_ presenter: P) {
         self.presenter = presenter
@@ -12,27 +14,35 @@ struct ContactSceneView<P: ContactScenePresenterProtocol>: View {
     
     var body: some View {
         GeometryReader { reader in
-            ZStack {
-                Color.base2
-                
-                ForEach(Array(presenter.contacts.enumerated()), id: \.offset) { offset, contact in
-                    let percet = Double(offset)/Double(presenter.contacts.count)
-                    IconButton(icon: contact.icon) {
-                        presenter.didTapContact(contact)
-                    }
-                    .frame(size: .s(reader.size.width/5))
-                    .offset(.angle(.degrees(percet * 360)) * reader.size.width/4)
-                }
-                VStack {
+            VStack {
+                ZStack {
+                    Color.base2
                     
+                    ForEach(Array(presenter.contacts.enumerated()), id: \.offset) { offset, contact in
+                        let offset = Double(offset)
+                        let percent = offset/Double(presenter.contacts.count)
+                        IconButton(icon: contact.icon) {
+                            presenter.didTapContact(contact)
+                        }
+                        .frame(size: .s(reader.size.width/5))
+                        .opacity(animate ? 1 : 0)
+                        .offset(.angle(.degrees(percent * 360)) * reader.size.width * (animate ? 1/4 : 1) )
+                        .animation(.bouncy.delay(1 + 0.5 * offset), value: animate)
+                    }
                 }
+                
+                Spacer()
+                
+                AvatarView()
+                    .frame(size: .s(w: 100, h: 180))
+                
             }
         }
-        .gestureRouter(directions: [.down]) { 
+        .gestureRouter(directions: [.down]) {
             presenter.routing(direction: $0)
         }
         .onAppear {
-            
+            animate.toggle()
         }
     }
 }

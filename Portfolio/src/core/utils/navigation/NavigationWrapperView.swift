@@ -16,22 +16,29 @@ struct NavigationWrapperView: View {
     init(coordinator: NavigationCoordinator) {
         self.navCoordinator = coordinator
     }
-    
+
     var body: some View {
         ZStack {
-            Color.base2
-                .edgesIgnoringSafeArea(.all)
-            if let factory = path.last {
-                factory.build()
-                    .zIndex(Double(path.count))
-                    .transition(
-                        .push(from: push ? .bottom : .top)
-                    )
+            GeometryReader { reader in
+                Color.base2
+                    .edgesIgnoringSafeArea(.all)
+                ZStack {
+                    ForEach(path) { factory in
+                        factory.build()
+                            .zIndex(path.last == factory ? 1 : 0)
+                            .opacity(path.last == factory ? 1 : 0)
+                            .offset(y: reader.size.height * (path.last == factory ? 0 : -1))
+                            .transition(
+                                .move(edge: .bottom)
+                                .combined(with: .opacity)
+                            )
+                    }
+                }
             }
-        }.onChange(of: navCoordinator.path) { path in
-            push = path.count > self.path.count
+        }.onChange(of: navCoordinator.path) { old, new in
+            push = old.count < new.count
             withAnimation {
-                self.path = path
+                self.path = new
             }
         }
     }

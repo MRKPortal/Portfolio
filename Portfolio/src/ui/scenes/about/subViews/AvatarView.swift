@@ -30,7 +30,7 @@ struct AvatarView: View {
             Circle()
                 .fill(Color.base1)
                 .frame(size: .s(20))
-                .offset(x: animate ? 20 : -20)
+                .offset(y: animate ? 0 : -20)
         }
         .clipShape(shape)
         .onAppear {

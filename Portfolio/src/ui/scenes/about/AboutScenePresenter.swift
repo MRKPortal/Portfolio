@@ -1,5 +1,5 @@
 //
-//  ExplainerScenePresenter.swift
+//  AboutScenePresenter.swift
 //  Portfolio
 //
 //  Created by Marc Flores on 26/12/23.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol ExplainerScenePresenterProtocol: GenericScenePresenterProtocol {
+protocol AboutScenePresenterProtocol: GenericScenePresenterProtocol {
 }
 
-final class ExplainerScenePresenter: ExplainerScenePresenterProtocol {
+final class AboutScenePresenter: AboutScenePresenterProtocol {
 
     private let router: GenericRouterProtocol
     
-    init(_ interactor: ExplainerSceneInteractorProtocol, rotuer: GenericRouterProtocol) {
+    init(_ interactor: AboutSceneInteractorProtocol, rotuer: GenericRouterProtocol) {
         self.router = rotuer
     }
     

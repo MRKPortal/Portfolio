@@ -14,9 +14,9 @@ enum NavigationDirection {
 
 private struct GestureRouterModifier: ViewModifier {
     @State private var offset: CGSize = .zero
-
+    
     private let generator = UIImpactFeedbackGenerator(style: .light)
-
+    
     let routingCallback: DirectionCallback
     let speedThreshold: CGFloat
     let directions: [NavigationDirection]
@@ -43,6 +43,8 @@ private struct GestureRouterModifier: ViewModifier {
                                 } else {
                                     offset = .zero
                                 }
+                            } completion: {
+                                offset = .zero
                             }
                         }
                 )
@@ -57,7 +59,7 @@ extension NavigationDirection {
         case .up: gesture.translation.height < 0 && gesture.translation.isHeightBigger
         }
     }
-
+    
     func satisfiesEnd(_ gesture: DragGesture.Value, _ screenSize: CGSize, _ speedThreshold: CGFloat) -> Bool {
         switch self {
         case .up: -gesture.translation.height > screenSize.height/4 || -gesture.velocity.height > speedThreshold
@@ -71,7 +73,7 @@ extension NavigationDirection {
                 .s(h: gesture.translation.height)
         }
     }
-
+    
     func finalOffset(_ screenSize: CGSize) -> CGSize {
         switch self {
         case .down: .s(h: screenSize.height)
@@ -85,12 +87,12 @@ extension View {
         directions: [NavigationDirection] = [.up, .down],
         speedThreshold: CGFloat = 1000,
         routingCallback: @escaping DirectionCallback)-> some View {
-        self.modifier(
-            GestureRouterModifier(
-                routingCallback: routingCallback,
-                speedThreshold: speedThreshold,
-                directions: directions
+            self.modifier(
+                GestureRouterModifier(
+                    routingCallback: routingCallback,
+                    speedThreshold: speedThreshold,
+                    directions: directions
+                )
             )
-        )
-    }
+        }
 }

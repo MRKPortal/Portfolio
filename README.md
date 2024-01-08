@@ -6,11 +6,13 @@ Dark
 <p>  
 <img src="samples/dark/skills.png" width="20%"/>
 <img src="samples/dark/skills_detail.png" width="20%"/>
+<img src="samples/dark/contact.png" width="20%"/>
 </p>
 Light
 <p>  
 <img src="samples/light/skills.png" width="20%"/>
 <img src="samples/light/skills_detail.png" width="20%"/>
+<img src="samples/light/contact.png" width="20%"/>
 </p>
 
 # Resources Disclaimer
